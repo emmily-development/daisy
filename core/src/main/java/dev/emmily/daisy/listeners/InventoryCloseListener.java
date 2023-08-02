@@ -1,19 +1,18 @@
 package dev.emmily.daisy.listeners;
 
-import dev.emmily.daisy.menu.Menu;
 import dev.emmily.daisy.action.Action;
+import dev.emmily.daisy.menu.Menu;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.plugin.Plugin;
 
-public class InventoryOpenListener
+public class InventoryCloseListener
   implements Listener {
   @EventHandler
-  public void onInventoryOpen(InventoryOpenEvent event) {
+  public void onInventoryClose(InventoryCloseEvent event) {
     Inventory inventory = event.getInventory();
     HumanEntity entity = event.getPlayer();
 
@@ -28,10 +27,7 @@ public class InventoryOpenListener
     }
 
     Menu menu = (Menu) inventory.getHolder();
-    Action openAction = menu.getOpenAction();
-
-    if (!openAction.perform(player)) {
-      event.setCancelled(true);
-    }
+    Action closeAction = menu.getCloseAction();
+    closeAction.perform(player);
   }
 }

@@ -2,6 +2,8 @@ package dev.emmily.daisy;
 
 import dev.emmily.daisy.listeners.InventoryClickListener;
 import dev.emmily.daisy.listeners.InventoryOpenListener;
+import dev.emmily.daisy.menu.scheduler.UpdatableMenuScheduler;
+import dev.emmily.daisy.menu.types.updatable.UpdatableMenuRegistry;
 import dev.emmily.daisy.protocol.NbtHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
@@ -38,6 +40,17 @@ public class DaisySetup {
     PluginManager pluginManager = plugin.getServer().getPluginManager();
 
     pluginManager.registerEvents(new InventoryClickListener(), plugin);
-    pluginManager.registerEvents(new InventoryOpenListener(plugin), plugin);
+    pluginManager.registerEvents(new InventoryOpenListener(), plugin);
+    pluginManager.registerEvents(new InventoryClickListener(), plugin);
+  }
+
+  public static void injectScheduler(Plugin plugin,
+                                     UpdatableMenuRegistry registry) {
+    plugin.getServer().getScheduler().scheduleSyncRepeatingTask(
+      plugin,
+      new UpdatableMenuScheduler(registry),
+      0L,
+      20
+    );
   }
 }

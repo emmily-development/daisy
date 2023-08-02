@@ -1,17 +1,23 @@
 package dev.emmily.daisy.listeners;
 
-import dev.emmily.daisy.MenuInterface;
+import dev.emmily.daisy.menu.Menu;
 import dev.emmily.daisy.action.Action;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.plugin.Plugin;
 
 public class InventoryOpenListener
   implements Listener {
+  private final Plugin plugin;
+
+  public InventoryOpenListener(Plugin plugin) {
+    this.plugin = plugin;
+  }
+
   @EventHandler
   public void onInventoryOpen(InventoryOpenEvent event) {
     Inventory inventory = event.getInventory();
@@ -22,24 +28,16 @@ public class InventoryOpenListener
     }
 
     Player player = (Player) entity;
-    MenuInterface menuInterface;
 
-    if (inventory instanceof MenuInterface) {
-      menuInterface = (MenuInterface) inventory;
-    } else if (inventory.getHolder() instanceof MenuInterface) {
-      menuInterface = (MenuInterface) inventory.getHolder();
-    } else {
+    if (!(inventory.getHolder() instanceof Menu)) {
       return;
     }
 
-    Action openAction = menuInterface.getOpenAction();
+    Menu menu = (Menu) inventory.getHolder();
+    Action openAction = menu.getOpenAction();
 
     if (!openAction.perform(player)) {
       event.setCancelled(true);
-
-      return;
     }
-
-    player.openInventory(inventory);
   }
 }

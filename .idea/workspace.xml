@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e780bef5-04dd-4583-a295-5c7b0e475515" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/DaisySetup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/action/SendMessageAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/item/builder/ItemBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/item/color/ItemColor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/scheduler/UpdatableMenuScheduler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/builder/MenuBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/chest/ChestMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/chest/ChestMenuBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/chest/ChestSize.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/layout/LayoutMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/layout/LayoutMenuBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/paginated/PaginatedMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/paginated/PaginatedMenuBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/updatable/UpdatableMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/updatable/UpdatableMenuRegistry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/dev/emmily/daisy/demo/DaisyDemoPlugin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/MenuInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/action/Action.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/item/MenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/item/MenuItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/listeners/InventoryClickListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/listeners/InventoryClickListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/listeners/InventoryOpenListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/listeners/InventoryOpenListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/types/anvil/AnvilMenuInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/anvil/AnvilMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/types/chest/ChestMenuInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/types/enchantment/EnchantmentMenuInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/enchantment/EnchantmentMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_8_R3/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_8_R3/src/main/java/dev/emmily/daisy/protocol/v_1_8_R3/NbtHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/protocol/protocol-v1_8_R3/src/main/java/dev/emmily/daisy/protocol/v1_8_R3/NbtHandlerImpl.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="daisy" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="daisy" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2SjYUzr6eX38BYwzkSbSTACHOqZ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "C:/Users/Emily Sophia/IdeaProjects/MAClans",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "configuration.execution"
+  }
+}]]></component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn install -T 4" />
+      <command value="gradlew clean shadowJar" />
+      <command value="gradlew clean" />
+      <command value="gradlew shadowJar" />
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="Application" />
+        <option value="JarApplication" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Gradle.daisy [shadowJar]">
+    <configuration name="daisy [clean shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+            <option value="shadowJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="daisy [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="daisy [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="shadowJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="debug" type="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="4999" />
+      <option name="AUTO_RESTART" value="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="4999" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.daisy [clean shadowJar]" />
+      <item itemvalue="Gradle.daisy [clean]" />
+      <item itemvalue="Gradle.daisy [shadowJar]" />
+      <item itemvalue="Remote JVM Debug.debug" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.daisy [shadowJar]" />
+        <item itemvalue="Gradle.daisy [clean]" />
+        <item itemvalue="Gradle.daisy [clean shadowJar]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e780bef5-04dd-4583-a295-5c7b0e475515" name="Changes" comment="" />
+      <created>1689661477545</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1689661477545</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -1,6 +1,7 @@
 package dev.emmily.daisy.action;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import org.bukkit.Sound;
 
 /**
  * Represents an action that an object
@@ -8,10 +9,18 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
  */
 @JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, property = "@class")
 public interface Action {
+  static Action sendMessage(String message) {
+    return new SendMessageAction(message);
+  }
+  static Action performCommand(String command) {
+    return new PerformCommandAction(command);
+  }
+  static Action playSound(Sound sound, float volume, float pitch) {
+    return new PlaySoundAction(sound, volume, pitch);
+  }
   static Action alwaysTrue() {
     return entity -> true;
   }
-
   static Action alwaysFalse() {
     return entity -> false;
   }

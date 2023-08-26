@@ -1,14 +1,14 @@
 package dev.emmily.daisy.listeners;
 
 import dev.emmily.daisy.menu.Menu;
-import dev.emmily.daisy.action.Action;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.plugin.Plugin;
+
+import java.util.function.Predicate;
 
 public class InventoryOpenListener
   implements Listener {
@@ -28,9 +28,9 @@ public class InventoryOpenListener
     }
 
     Menu menu = (Menu) inventory.getHolder();
-    Action openAction = menu.getOpenAction();
+    Predicate<InventoryOpenEvent> openAction = menu.getOpenAction();
 
-    if (!openAction.perform(player)) {
+    if (!openAction.test(event)) {
       event.setCancelled(true);
     }
   }

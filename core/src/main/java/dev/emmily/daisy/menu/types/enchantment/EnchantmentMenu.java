@@ -2,12 +2,15 @@ package dev.emmily.daisy.menu.types.enchantment;
 
 import dev.emmily.daisy.item.MenuItem;
 import dev.emmily.daisy.menu.Menu;
-import dev.emmily.daisy.action.Action;
 import org.bukkit.Bukkit;
+import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class EnchantmentMenu
   extends Menu {
@@ -16,8 +19,8 @@ public class EnchantmentMenu
 
   public EnchantmentMenu(String title,
                          List<MenuItem> items,
-                         Action openAction,
-                         Action closeAction,
+                         Predicate<InventoryOpenEvent> openAction,
+                         Consumer<InventoryCloseEvent> closeAction,
                          List<String> options) {
     super(title, 5, items, Type.ENCHANTMENT, openAction, closeAction);
     this.options = options;

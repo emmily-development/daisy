@@ -10,4 +10,4 @@ dependencies {
   compileOnly("org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT")
 }
 
-description = "daisy-protocol-v1_8_R3"
+description = "Spigot 1.8.8 R3 protocol implementation"

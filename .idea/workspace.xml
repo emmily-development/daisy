@@ -5,44 +5,57 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e780bef5-04dd-4583-a295-5c7b0e475515" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/DaisySetup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/action/SendMessageAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/item/builder/ItemBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/item/color/ItemColor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/scheduler/UpdatableMenuScheduler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/builder/MenuBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/chest/ChestMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/chest/ChestMenuBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/chest/ChestSize.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/layout/LayoutMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/layout/LayoutMenuBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/paginated/PaginatedMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/paginated/PaginatedMenuBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/updatable/UpdatableMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/updatable/UpdatableMenuRegistry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/dev/emmily/daisy/demo/DaisyDemoPlugin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/MenuInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/reader/reader-json-gson/dev.emmily.daisy.daisy-reader-json-gson.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/reader/MenuReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/util/SoundPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/resources/default_test_menu.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reader/reader-json-gson/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reader/reader-json-gson/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reader/reader-json-gson/src/main/java/dev/emmily/daisy/reader/json/gson/JsonMenuReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reader/reader-json-gson/src/main/java/dev/emmily/daisy/reader/json/gson/adapter/ItemStackTypeAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/core/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/DaisySetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/DaisySetup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/action/Action.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/action/PerformCommandAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/action/PlaySoundAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/action/SendMessageAction.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/item/MenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/item/MenuItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/listeners/InventoryClickListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/listeners/InventoryClickListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/listeners/InventoryCloseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/listeners/InventoryCloseListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/listeners/InventoryOpenListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/listeners/InventoryOpenListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/types/anvil/AnvilMenuInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/anvil/AnvilMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/types/chest/ChestMenuInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/types/enchantment/EnchantmentMenuInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/enchantment/EnchantmentMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_8_R3/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_8_R3/src/main/java/dev/emmily/daisy/protocol/v_1_8_R3/NbtHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/protocol/protocol-v1_8_R3/src/main/java/dev/emmily/daisy/protocol/v1_8_R3/NbtHandlerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/anvil/AnvilMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/anvil/AnvilMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/builder/MenuBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/builder/MenuBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/chest/ChestMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/chest/ChestMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/enchantment/EnchantmentMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/enchantment/EnchantmentMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/layout/LayoutMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/layout/LayoutMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/layout/LayoutMenuBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/layout/LayoutMenuBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/updatable/UpdatableMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/menu/types/updatable/UpdatableMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/protocol/NbtHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/protocol/NbtHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/demo/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/dev/emmily/daisy/demo/DaisyDemoPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/dev/emmily/daisy/demo/DaisyDemoPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_8_R3/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/protocol/protocol-v1_8_R3/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +64,9 @@
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/reader/reader-json-gson">
       <ProjectState />
     </projectState>
   </component>
@@ -72,6 +88,118 @@
                 <item name="daisy" type="f1a62948:ProjectNode" />
                 <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="daisy" type="f1a62948:ProjectNode" />
+                <item name="daisy-core" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="daisy" type="f1a62948:ProjectNode" />
+                <item name="daisy-core" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="daisy" type="f1a62948:ProjectNode" />
+                <item name="daisy-core" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="daisy" type="f1a62948:ProjectNode" />
+                <item name="daisy-demo" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="daisy" type="f1a62948:ProjectNode" />
+                <item name="daisy-protocol-v1_8_R3" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="daisy" type="f1a62948:ProjectNode" />
+                <item name="daisy-protocol-v1_8_R3" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="daisy" type="f1a62948:ProjectNode" />
+                <item name="daisy-protocol-v1_8_R3" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="daisy" type="f1a62948:ProjectNode" />
+                <item name="daisy-reader-json-gson" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="daisy" type="f1a62948:ProjectNode" />
+                <item name="daisy-reader-json-gson" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="daisy" type="f1a62948:ProjectNode" />
+                <item name="daisy-reader-json-gson" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="daisy" type="f1a62948:ProjectNode" />
+                <item name="daisy-reader-json-gson" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project daisy-core" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="daisy" type="f1a62948:ProjectNode" />
+                <item name="daisy-reader-json-gson" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="daisy" type="f1a62948:ProjectNode" />
+                <item name="daisy-reader-json-gson" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project daisy-core" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="daisy" type="f1a62948:ProjectNode" />
+                <item name="daisy-reader-json-gson" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="testCompileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="daisy" type="f1a62948:ProjectNode" />
+                <item name="daisy-reader-json-gson" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="testCompileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project daisy-core" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="daisy" type="f1a62948:ProjectNode" />
+                <item name="daisy-reader-json-gson" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="testRuntimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="daisy" type="f1a62948:ProjectNode" />
+                <item name="daisy-reader-json-gson" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="testRuntimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project daisy-core" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -83,6 +211,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -105,25 +234,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/Users/Emily Sophia/IdeaProjects/MAClans",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "configuration.execution"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Emily Sophia/IdeaProjects/daisy/reader/reader-json-gson&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configuration.execution&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Emily Sophia\IdeaProjects\daisy\reader\reader-json-gson" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Emily Sophia\IdeaProjects\daisy\reader" />
+    </key>
+  </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn install -T 4" />
       <command value="gradlew clean shadowJar" />
       <command value="gradlew clean" />
       <command value="gradlew shadowJar" />
+      <command value="gradlew publishMavenPublicationToMavenLocal" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -134,7 +273,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.daisy [shadowJar]">
+  <component name="RunManager" selected="Gradle.daisy [publishMavenPublicationToMavenLocal]">
     <configuration name="daisy [clean shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -170,6 +309,28 @@
         <option name="taskNames">
           <list>
             <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="daisy [publishMavenPublicationToMavenLocal]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="publishMavenPublicationToMavenLocal" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -216,6 +377,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Gradle.daisy [publishMavenPublicationToMavenLocal]" />
       <item itemvalue="Gradle.daisy [clean shadowJar]" />
       <item itemvalue="Gradle.daisy [clean]" />
       <item itemvalue="Gradle.daisy [shadowJar]" />
@@ -223,6 +385,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.daisy [publishMavenPublicationToMavenLocal]" />
         <item itemvalue="Gradle.daisy [shadowJar]" />
         <item itemvalue="Gradle.daisy [clean]" />
         <item itemvalue="Gradle.daisy [clean shadowJar]" />
@@ -230,6 +393,13 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="StandaloneScriptsStorage">
+    <option name="files">
+      <set>
+        <option value="$PROJECT_DIR$/reader/daisy-reader-json-gson/build.gradle.kts" />
+      </set>
+    </option>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="e780bef5-04dd-4583-a295-5c7b0e475515" name="Changes" comment="" />

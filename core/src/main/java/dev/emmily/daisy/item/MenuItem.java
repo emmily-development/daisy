@@ -1,19 +1,20 @@
 package dev.emmily.daisy.item;
 
 import com.google.common.base.Preconditions;
-import dev.emmily.daisy.action.Action;
 import dev.emmily.daisy.protocol.NbtHandler;
-import org.bukkit.Material;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
+
+import java.util.function.Predicate;
 
 public class MenuItem {
   private ItemStack item;
   private final int slot;
-  private final Action action;
+  private final Predicate<InventoryClickEvent> action;
 
   private MenuItem(ItemStack item,
                    int slot,
-                   Action action) {
+                   Predicate<InventoryClickEvent> action) {
     this.item = item;
     this.slot = slot;
     this.action = action;
@@ -35,14 +36,14 @@ public class MenuItem {
     return slot;
   }
 
-  public Action getAction() {
+  public Predicate<InventoryClickEvent> getAction() {
     return action;
   }
 
   public static class Builder {
     private ItemStack minecraftItem;
     private int slot;
-    private Action action;
+    private Predicate<InventoryClickEvent> action;
 
     public Builder item(ItemStack minecraftItem) {
       this.minecraftItem = minecraftItem;
@@ -56,15 +57,15 @@ public class MenuItem {
       return this;
     }
 
-    public Builder action(Action action) {
+    public Builder action(Predicate<InventoryClickEvent> action) {
       this.action = action;
 
       return this;
     }
 
-    public MenuItem build(NbtHandler nbtHandler) {
+    public MenuItem build() {
       Preconditions.checkNotNull(minecraftItem, "item cannot be null");
-      nbtHandler.addTag(minecraftItem, "daisy", "menu-item");
+      NbtHandler.Holder.getInstance().addTag(minecraftItem, "daisy", "menu-item");
 
       return new MenuItem(minecraftItem, slot, action);
     }

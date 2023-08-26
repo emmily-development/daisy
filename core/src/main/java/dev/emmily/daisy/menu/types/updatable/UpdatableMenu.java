@@ -1,6 +1,5 @@
 package dev.emmily.daisy.menu.types.updatable;
 
-import dev.emmily.daisy.action.Action;
 import dev.emmily.daisy.item.MenuItem;
 import dev.emmily.daisy.menu.Menu;
 import org.bukkit.inventory.Inventory;

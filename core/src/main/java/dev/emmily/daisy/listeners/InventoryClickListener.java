@@ -2,7 +2,6 @@ package dev.emmily.daisy.listeners;
 
 import dev.emmily.daisy.item.MenuItem;
 import dev.emmily.daisy.menu.Menu;
-import dev.emmily.daisy.action.Action;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -11,6 +10,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 public class InventoryClickListener
   implements Listener {
@@ -45,7 +45,7 @@ public class InventoryClickListener
       return;
     }
 
-    Action clickAction = item.getAction();
-    event.setCancelled(clickAction.perform(event.getWhoClicked()));
+    Predicate<InventoryClickEvent> clickAction = item.getAction();
+    event.setCancelled(clickAction.test(event));
   }
 }

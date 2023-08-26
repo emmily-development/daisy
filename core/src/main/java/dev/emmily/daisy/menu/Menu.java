@@ -2,14 +2,17 @@ package dev.emmily.daisy.menu;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import dev.emmily.daisy.item.MenuItem;
-import dev.emmily.daisy.action.Action;
 import dev.emmily.daisy.menu.types.chest.ChestMenuBuilder;
+import dev.emmily.daisy.menu.types.chest.ChestSize;
 import dev.emmily.daisy.menu.types.layout.LayoutMenuBuilder;
-import dev.emmily.daisy.menu.types.paginated.PaginatedMenuBuilder;
+import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.inventory.InventoryHolder;
 
 import java.beans.ConstructorProperties;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 /**
  * Represents a wrapped Minecraft inventory.
@@ -23,28 +26,31 @@ public abstract class Menu
   public static LayoutMenuBuilder layoutMenuBuilder() {
     return new LayoutMenuBuilder();
   }
-  public static <T> PaginatedMenuBuilder<T> paginatedMenuBuilder() {
-    return new PaginatedMenuBuilder<>();
-  }
 
   protected final String title;
   protected final int size;
   private final List<MenuItem> items;
   private final Type type;
-  private final Action openAction;
-  private final Action closeAction;
+  private final Predicate<InventoryOpenEvent> openAction;
+  private final Consumer<InventoryCloseEvent> closeAction;
+
   @ConstructorProperties({
     "title", "size", "items",
-    "type", "openAction", "closeAction"
+    "type", "openAction",
+    "closeAction"
   })
   public Menu(String title,
               int size,
               List<MenuItem> items,
               Type type,
-              Action openAction,
-              Action closeAction) {
+              Predicate<InventoryOpenEvent> openAction,
+              Consumer<InventoryCloseEvent> closeAction) {
     this.title = title;
-    this.size = size;
+    if (size < 9 && type.maxRows == 6) {
+      this.size = ChestSize.toSlots(size);
+    } else {
+      this.size = size;
+    }
     this.type = type;
     this.items = items;
     this.openAction = openAction;
@@ -67,7 +73,7 @@ public abstract class Menu
    * @return the Minecraft GUI's total
    * slots.
    */
-  public int getActualSize() {
+  public int getSize() {
     return size;
   }
 
@@ -94,17 +100,17 @@ public abstract class Menu
   }
 
   /**
-   * Returns the interface's open action,
+   * Returns the interface's open Predicate,
    * nullable.
    *
-   * @return The interface's open action,
+   * @return The interface's open Predicate,
    * nullable.
    */
-  public Action getOpenAction() {
+  public Predicate<InventoryOpenEvent> getOpenAction() {
     return openAction;
   }
 
-  public Action getCloseAction() {
+  public Consumer<InventoryCloseEvent> getCloseAction() {
     return closeAction;
   }
 
@@ -113,11 +119,21 @@ public abstract class Menu
   }
 
   public enum Type {
-    ANVIL,
-    CHEST,
-    ENCHANTMENT,
-    LAYOUT,
-    PAGINATED,
-    UPDATABLE
+    ANVIL(3),
+    CHEST(6),
+    ENCHANTMENT(2),
+    LAYOUT(6),
+    PAGINATED(6),
+    UPDATABLE(6);
+
+    final int maxRows;
+
+    Type(int maxRows) {
+      this.maxRows = maxRows;
+    }
+
+    public int getMaxRows() {
+      return maxRows;
+    }
   }
 }

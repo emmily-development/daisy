@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/demo" />
             <option value="$PROJECT_DIR$/protocol/protocol-v1_8_R3" />
+            <option value="$PROJECT_DIR$/reader/reader-json-gson" />
           </set>
         </option>
       </GradleProjectSettings>

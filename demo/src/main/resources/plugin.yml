@@ -1,7 +1,7 @@
 name: "DaisyDemo"
 version: "0.0.1-SNAPSHOT"
-main: "dev.emmily.daisy.demo.DaisyDemoPlugin"
+main: "dev.emmily.daisydemo.DaisyDemoPlugin"
 commands:
   daisy:
-    description: Open the main menu of the Daisy's demo plugin
-    usage: /<command>
+    description: "Open the main menu of the Daisy's demo plugin"
+    usage: "/<command>"

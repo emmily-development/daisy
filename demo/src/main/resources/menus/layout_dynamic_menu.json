@@ -1,0 +1,17 @@
+{
+  "type": "dynamic-layout",
+  "title": "Dynamic Layout menu",
+  "frames": [
+    [
+      "DdDdDdDdD",
+      "d0001000d",
+      "DdDdDdDdD"
+    ],
+    [
+      "dDdDdDdDd",
+      "D0001000D",
+      "dDdDdDdDd"
+    ]
+  ],
+
+}

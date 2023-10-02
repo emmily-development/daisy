@@ -414,7 +414,10 @@ public class DaisyDemoPlugin
           .lore("&7Value: " + value)
           .build()
         )
-        .action(event -> true)
+        .action(event -> {
+          player.sendMessage("You've clicked the item #" + index);
+          return true;
+        })
         .build()
       )
       .previousPageSwitch(MenuItem

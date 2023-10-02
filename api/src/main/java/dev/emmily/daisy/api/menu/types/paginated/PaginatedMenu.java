@@ -183,16 +183,8 @@ public class PaginatedMenu<T>
       inventory.setItem(nextPageSwitch.getSlot(), nextPageSwitch.getItem());
     }
 
-    for (MenuItem copy : itemsCopy) {
-      getItems().remove(copy);
-    }
+    populateCopy();
 
-    itemsCopy.clear();
-
-    itemsCopy.add(previousPageSwitch);
-    getItems().add(previousPageSwitch);
-    itemsCopy.add(nextPageSwitch);
-    getItems().add(nextPageSwitch);
     List<T> elements = getCurrentPage();
 
     int slot = 0;
@@ -203,12 +195,25 @@ public class PaginatedMenu<T>
       }
 
       MenuItem item = elementParser.apply(element, getElementIndex(element));
+      item.setSlot(slot);
       getItems().add(item);
+      itemsCopy.add(item);
 
-      inventory.setItem(slot, item.getItem());
-
-      slot++;
+      inventory.setItem(slot++, item.getItem());
     }
+  }
+
+  private void populateCopy() {
+    for (MenuItem copy : itemsCopy) {
+      getItems().remove(copy);
+    }
+
+    itemsCopy.clear();
+
+    itemsCopy.add(previousPageSwitch);
+    getItems().add(previousPageSwitch);
+    itemsCopy.add(nextPageSwitch);
+    getItems().add(nextPageSwitch);
   }
 
   /**

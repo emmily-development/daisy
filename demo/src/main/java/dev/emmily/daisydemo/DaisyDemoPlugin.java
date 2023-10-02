@@ -47,6 +47,7 @@ public class DaisyDemoPlugin
 
     config = new ConfigurationFile(this, "config");
 
+    /*
     String readerName = config.getString("menu-reader");
     switch (readerName) {
       case "jackson": {
@@ -65,6 +66,8 @@ public class DaisyDemoPlugin
 
     getLogger().info("Using the " + readerName + " reader.");
 
+
+     */
     menusFolder = new File(getDataFolder(), "menus");
     menuLoader = new MenuLoader(this, menuReader);
 
@@ -115,6 +118,7 @@ public class DaisyDemoPlugin
           break;
         }
 
+        /*
         case "file-updatable": {
           if (args[1] == null || args[2] == null) {
             player.sendMessage("Unknown menu");
@@ -126,6 +130,8 @@ public class DaisyDemoPlugin
 
           break;
         }
+
+         */
 
         case "paginated": {
           openPaginatedMenu(player);

@@ -50,12 +50,10 @@ public class InventoryClickListener
       if (item.getSlot() == slot) {
         Predicate<InventoryClickEvent> clickAction = item.getAction();
         event.setCancelled(clickAction.test(event));
-        System.out.println("poringa");
       }
     }
 
     if (menu instanceof PaginatedMenu) {
-      System.out.println("pitaya");
       PaginatedMenu<?> paginatedMenu = (PaginatedMenu<?>) menu;
 
       if (slot == paginatedMenu.getPreviousPageSwitch().getSlot() && paginatedMenu.hasPreviousPage()) {

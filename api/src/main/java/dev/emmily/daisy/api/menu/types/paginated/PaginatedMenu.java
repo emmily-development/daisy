@@ -111,7 +111,8 @@ public class PaginatedMenu<T>
       "daisy-page-switch",
       "next"
     ));
-
+    this.skippedSlots.add(previousPageSwitch.getSlot());
+    this.skippedSlots.add(nextPageSwitch.getSlot());
     this.itemsCopy = new ArrayList<>();
 
     render(PageOperand.CURRENT);
@@ -166,52 +167,47 @@ public class PaginatedMenu<T>
    *                go forward, backward, or stay.
    */
   public void render(PageOperand operand) {
-    try {
-      inventory.clear();
+    inventory.clear();
 
-      if (operand == PageOperand.NEXT) {
-        nextPage();
-      } else if (operand == PageOperand.PREVIOUS) {
-        previousPage();
+    if (operand == PageOperand.NEXT) {
+      nextPage();
+    } else if (operand == PageOperand.PREVIOUS) {
+      previousPage();
+    }
+
+    if (hasPreviousPage()) {
+      inventory.setItem(previousPageSwitch.getSlot(), previousPageSwitch.getItem());
+    }
+
+    if (hasNextPage()) {
+      inventory.setItem(nextPageSwitch.getSlot(), nextPageSwitch.getItem());
+    }
+
+    for (MenuItem copy : itemsCopy) {
+      getItems().remove(copy);
+    }
+
+    itemsCopy.clear();
+
+    itemsCopy.add(previousPageSwitch);
+    getItems().add(previousPageSwitch);
+    itemsCopy.add(nextPageSwitch);
+    getItems().add(nextPageSwitch);
+    List<T> elements = getCurrentPage();
+
+    int slot = 0;
+
+    for (T element : elements) {
+      while (skippedSlots.contains(slot)) {
+        slot++;
       }
 
-      if (hasPreviousPage()) {
-        inventory.setItem(previousPageSwitch.getSlot(), previousPageSwitch.getItem());
-      }
+      MenuItem item = elementParser.apply(element, getElementIndex(element));
+      getItems().add(item);
 
-      if (hasNextPage()) {
-        inventory.setItem(nextPageSwitch.getSlot(), nextPageSwitch.getItem());
-      }
+      inventory.setItem(slot, item.getItem());
 
-      for (MenuItem copy : itemsCopy) {
-        getItems().remove(copy);
-      }
-
-      itemsCopy.clear();
-
-      itemsCopy.add(previousPageSwitch);
-      getItems().add(previousPageSwitch);
-      itemsCopy.add(nextPageSwitch);
-      getItems().add(nextPageSwitch);
-      List<T> elements = getCurrentPage();
-
-      for (int i = 0; i < elements.size(); i++) {
-        T element = elements.get(i);
-        System.out.println(element + " " + getElementIndex(element));
-        MenuItem item = elementParser.apply(element, getElementIndex(element));
-        itemsCopy.add(item);
-        getItems().add(item);
-
-        int slot = i;
-
-        while (skippedSlots.contains(slot)) {
-          slot++;
-        }
-
-        inventory.setItem(slot, item.getItem());
-      }
-    } catch (Exception e) {
-      e.printStackTrace();
+      slot++;
     }
   }
 
@@ -226,14 +222,16 @@ public class PaginatedMenu<T>
    * as a non-paged list.
    */
   private int getElementIndex(T element) {
-    for (int i = 0; i < pages.size(); i++) {
-      List<T> page = pages.get(i);
+    int globalIndex = 0;
 
+    for (List<T> page : pages) {
       int index = page.indexOf(element);
 
       if (index != -1) {
-        return index + (i * page.size());
+        return globalIndex + index;
       }
+
+      globalIndex += page.size();
     }
 
     return -1;

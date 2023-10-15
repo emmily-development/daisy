@@ -55,7 +55,7 @@ public interface NbtHandler {
   Map<String, Object> getTags(ItemStack item);
 
   public class Holder {
-    private static NbtHandler instance;
+    private static volatile NbtHandler instance;
     private static final Object LOCK = new Object();
     private static final String PROTOCOL_CLASS_PATTERN = "dev.emmily.daisy.protocol.%s";
     private static final String SERVER_VERSION = Bukkit

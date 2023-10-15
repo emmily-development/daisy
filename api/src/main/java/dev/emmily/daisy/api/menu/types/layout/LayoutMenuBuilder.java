@@ -111,7 +111,7 @@ public class LayoutMenuBuilder
   }
 
   public LayoutMenuBuilder layout(List<String> layout) {
-    if (layout.size() == 6) {
+    if (layout.size() > 6) {
       throw new IllegalArgumentException("The max number of rows is 6.");
     }
 
@@ -121,7 +121,7 @@ public class LayoutMenuBuilder
   }
 
   public LayoutMenuBuilder layout(String... layout) {
-    if (layout.length > 5) {
+    if (layout.length > 6) {
       throw new IllegalArgumentException("The max number of rows is 6.");
     }
 

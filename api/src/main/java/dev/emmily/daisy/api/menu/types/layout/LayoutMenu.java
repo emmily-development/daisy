@@ -69,6 +69,8 @@ public class LayoutMenu
           continue;
         }
 
+        item = item.copy();
+
         item.setSlot(index);
         getItems().add(item);
         inventory.setItem(index, item.getItem());

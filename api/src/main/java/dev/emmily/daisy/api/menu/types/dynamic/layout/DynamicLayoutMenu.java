@@ -79,6 +79,7 @@ public class DynamicLayoutMenu
             continue;
           }
 
+          item = item.copy();
           item.setSlot(index);
           getItems().add(item);
           getInventory().setItem(index, item.getItem());

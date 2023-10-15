@@ -44,6 +44,10 @@ public class MenuItem {
     return action;
   }
 
+  public MenuItem copy() {
+    return new MenuItem(new ItemStack(item), slot, action);
+  }
+
   public static class Builder {
     private ItemStack minecraftItem;
     private int slot;

@@ -1,4 +1,4 @@
-package dev.emmily.daisy.protocol.v1_20_R1;
+package dev.emmily.daisy.protocol.v1_20_R2;
 
 import dev.emmily.daisy.api.protocol.NbtHandler;
 import net.minecraft.nbt.NBTBase;

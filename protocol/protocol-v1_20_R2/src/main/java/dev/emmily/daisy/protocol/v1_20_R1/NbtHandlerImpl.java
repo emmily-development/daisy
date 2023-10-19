@@ -3,7 +3,7 @@ package dev.emmily.daisy.protocol.v1_20_R1;
 import dev.emmily.daisy.api.protocol.NbtHandler;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
-import org.bukkit.craftbukkit.v1_19_R3.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_20_R2.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.HashMap;
@@ -16,7 +16,7 @@ public class NbtHandlerImpl
                           String key,
                           Object value) {
     net.minecraft.world.item.ItemStack copy = CraftItemStack.asNMSCopy(item);
-    NBTTagCompound compound = copy.u();
+    NBTTagCompound compound = copy.v();
 
     if (compound == null) {
       compound = new NBTTagCompound();
@@ -49,7 +49,7 @@ public class NbtHandlerImpl
   @Override
   public boolean hasTag(ItemStack item,
                         String key) {
-    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).u();
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).v();
 
     return compound != null && compound.e(key);
   }
@@ -58,7 +58,7 @@ public class NbtHandlerImpl
   public Map<String, Object> getTags(ItemStack item) {
     Map<String, Object> tags = new HashMap<>();
 
-    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).u();
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).v();
 
     if (compound == null) {
       return tags;

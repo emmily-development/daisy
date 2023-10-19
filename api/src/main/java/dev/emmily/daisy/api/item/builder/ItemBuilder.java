@@ -4,6 +4,7 @@ import dev.emmily.daisy.api.protocol.NbtHandler;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -15,6 +16,7 @@ public class ItemBuilder {
   private byte data;
   private String name;
   private List<String> lore;
+  private List<ItemFlag> flags;
   private Map<Enchantment, Integer> enchantments;
   private Map<String, Object> tags;
 
@@ -76,6 +78,32 @@ public class ItemBuilder {
     return this;
   }
 
+  public ItemBuilder flags(List<ItemFlag> flags) {
+    this.flags = flags;
+
+    return this;
+  }
+
+  public ItemBuilder addFlags(ItemFlag... flags) {
+    if (this.flags == null) {
+      this.flags = new ArrayList<>();
+    }
+
+    this.flags.addAll(Arrays.asList(flags));
+
+    return this;
+  }
+
+  public ItemBuilder addFlag(ItemFlag flag) {
+    if (flags == null) {
+      flags = new ArrayList<>();
+    }
+
+    flags.add(flag);
+
+    return this;
+  }
+
   public ItemBuilder enchantments(Map<Enchantment, Integer> enchantments) {
     this.enchantments = enchantments;
 
@@ -122,6 +150,12 @@ public class ItemBuilder {
       lore.replaceAll(s -> ChatColor.translateAlternateColorCodes('&', s));
 
       meta.setLore(lore);
+    }
+
+    if (flags != null) {
+      for (ItemFlag flag : flags) {
+        meta.addItemFlags(flag);
+      }
     }
 
     if (enchantments != null) {

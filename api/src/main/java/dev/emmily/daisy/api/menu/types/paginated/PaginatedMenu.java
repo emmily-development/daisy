@@ -36,7 +36,7 @@ public class PaginatedMenu<T>
   private final MenuItem nextPageSwitch;
   private int currentPage;
 
-  private final List<MenuItem> itemsCopy;
+  private final List<MenuItem> pageItems;
 
   /**
    * Creates a paginated menu with elements of
@@ -113,7 +113,7 @@ public class PaginatedMenu<T>
     ));
     this.skippedSlots.add(previousPageSwitch.getSlot());
     this.skippedSlots.add(nextPageSwitch.getSlot());
-    this.itemsCopy = new ArrayList<>();
+    this.pageItems = new ArrayList<>();
 
     render(PageOperand.CURRENT);
   }
@@ -169,6 +169,10 @@ public class PaginatedMenu<T>
   public void render(PageOperand operand) {
     inventory.clear();
 
+    for (MenuItem item : getItems()) {
+      inventory.setItem(item.getSlot(), item.getItem());
+    }
+
     if (operand == PageOperand.NEXT) {
       nextPage();
     } else if (operand == PageOperand.PREVIOUS) {
@@ -196,23 +200,22 @@ public class PaginatedMenu<T>
 
       MenuItem item = elementParser.apply(element, getElementIndex(element));
       item.setSlot(slot);
-      getItems().add(item);
-      itemsCopy.add(item);
+      pageItems.add(item);
 
       inventory.setItem(slot++, item.getItem());
     }
   }
 
   private void populateCopy() {
-    for (MenuItem copy : itemsCopy) {
+    for (MenuItem copy : pageItems) {
       getItems().remove(copy);
     }
 
-    itemsCopy.clear();
+    pageItems.clear();
 
-    itemsCopy.add(previousPageSwitch);
+    pageItems.add(previousPageSwitch);
     getItems().add(previousPageSwitch);
-    itemsCopy.add(nextPageSwitch);
+    pageItems.add(nextPageSwitch);
     getItems().add(nextPageSwitch);
   }
 

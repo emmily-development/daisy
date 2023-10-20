@@ -125,7 +125,7 @@ public class PaginatedMenu<T>
    * @return The list of elements contained
    * in the current page ({@link #currentPage}).
    */
-  private List<T> getCurrentPage() {
+  public List<T> getCurrentPageElements() {
     if (currentPage >= 0 && currentPage < pages.size()) {
       return pages.get(currentPage);
     }
@@ -160,7 +160,7 @@ public class PaginatedMenu<T>
   }
 
   /**
-   * Renders the elements provided by {@link #getCurrentPage()}
+   * Renders the elements provided by {@link #getCurrentPageElements()}
    * in the {@link #inventory}.
    *
    * @param operand Indicates whether the page should
@@ -189,7 +189,7 @@ public class PaginatedMenu<T>
 
     populateCopy();
 
-    List<T> elements = getCurrentPage();
+    List<T> elements = getCurrentPageElements();
 
     int slot = 0;
 
@@ -265,6 +265,10 @@ public class PaginatedMenu<T>
    */
   public MenuItem getNextPageSwitch() {
     return nextPageSwitch;
+  }
+
+  public int getCurrentPage() {
+    return currentPage;
   }
 
   @Override

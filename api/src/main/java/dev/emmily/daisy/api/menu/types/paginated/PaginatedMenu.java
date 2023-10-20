@@ -3,6 +3,7 @@ package dev.emmily.daisy.api.menu.types.paginated;
 import dev.emmily.daisy.api.item.MenuItem;
 import dev.emmily.daisy.api.menu.Menu;
 import dev.emmily.daisy.api.protocol.NbtHandler;
+import dev.emmily.daisy.api.util.TriConsumer;
 import org.bukkit.Bukkit;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
@@ -34,6 +35,7 @@ public class PaginatedMenu<T>
   private final List<Integer> skippedSlots;
   private final MenuItem previousPageSwitch;
   private final MenuItem nextPageSwitch;
+  private final TriConsumer<Integer, Integer, PageOperand> pageSwitchAction;
   private int currentPage;
 
   private final List<MenuItem> pageItems;
@@ -61,6 +63,7 @@ public class PaginatedMenu<T>
    *                           to the previous page.
    * @param nextPageSwitch     The item that lets the player advance to
    *                           the next page.
+   * @param pageSwitchAction   The action executed when the page is switched.
    * @param bukkitType         The bukkit inventory type.
    */
   public PaginatedMenu(String title,
@@ -75,8 +78,10 @@ public class PaginatedMenu<T>
                        List<Integer> skippedSlots,
                        MenuItem previousPageSwitch,
                        MenuItem nextPageSwitch,
+                       TriConsumer<Integer, Integer, PageOperand> pageSwitchAction,
                        InventoryType bukkitType) {
     super(title, size, items, type, openAction, closeAction);
+    this.pageSwitchAction = pageSwitchAction;
     this.inventory = bukkitType ==
       InventoryType.CHEST || bukkitType == InventoryType.ENDER_CHEST
       ? Bukkit.createInventory(this, size, title)
@@ -274,6 +279,10 @@ public class PaginatedMenu<T>
   @Override
   public Inventory getInventory() {
     return inventory;
+  }
+
+  public TriConsumer<Integer, Integer, PageOperand> getPageSwitchAction() {
+    return pageSwitchAction;
   }
 
   public enum PageOperand {

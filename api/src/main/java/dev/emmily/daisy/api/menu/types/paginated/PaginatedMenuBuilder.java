@@ -4,6 +4,7 @@ import com.google.common.base.Preconditions;
 import dev.emmily.daisy.api.item.MenuItem;
 import dev.emmily.daisy.api.menu.Menu;
 import dev.emmily.daisy.api.menu.types.builder.MenuBuilder;
+import dev.emmily.daisy.api.util.TriConsumer;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.inventory.InventoryType;
@@ -23,6 +24,7 @@ public class PaginatedMenuBuilder<T>
   private List<Integer> skippedSlots;
   private MenuItem previousPageSwitch;
   private MenuItem nextPageSwitch;
+  private TriConsumer<Integer, Integer, PaginatedMenu.PageOperand> pageSwitchAction;
 
   public PaginatedMenuBuilder<T> title(String title) {
     this.title = title;
@@ -207,6 +209,12 @@ public class PaginatedMenuBuilder<T>
     return this;
   }
 
+  public PaginatedMenuBuilder<T> pageSwitchAction(TriConsumer<Integer, Integer, PaginatedMenu.PageOperand> pageSwitchAction) {
+    this.pageSwitchAction = pageSwitchAction;
+
+    return this;
+  }
+
   @Override
   public PaginatedMenu<T> build() {
     checkPreconditions();
@@ -223,7 +231,7 @@ public class PaginatedMenuBuilder<T>
       elements, elementParser,
       elementsPerPage, skippedSlots,
       previousPageSwitch, nextPageSwitch,
-      bukkitType
+      pageSwitchAction, bukkitType
     );
   }
 }

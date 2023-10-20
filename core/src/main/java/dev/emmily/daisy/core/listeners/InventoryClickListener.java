@@ -56,11 +56,19 @@ public class InventoryClickListener
     if (menu instanceof PaginatedMenu) {
       PaginatedMenu<?> paginatedMenu = (PaginatedMenu<?>) menu;
 
+      PaginatedMenu.PageOperand operand = null;
       if (slot == paginatedMenu.getPreviousPageSwitch().getSlot() && paginatedMenu.hasPreviousPage()) {
-        paginatedMenu.render(PaginatedMenu.PageOperand.PREVIOUS);
+         operand = PaginatedMenu.PageOperand.PREVIOUS;
       } else if (slot == paginatedMenu.getNextPageSwitch().getSlot() && paginatedMenu.hasNextPage()) {
-        paginatedMenu.render(PaginatedMenu.PageOperand.NEXT);
+        operand = PaginatedMenu.PageOperand.NEXT;
       }
+
+      paginatedMenu.render(operand);
+      paginatedMenu.getPageSwitchAction().accept(
+        paginatedMenu.getCurrentPage() - 1,
+        paginatedMenu.getCurrentPage(),
+        operand
+      );
     }
   }
 }

@@ -5,6 +5,7 @@ import dev.emmily.daisy.api.menu.Menu;
 import dev.emmily.daisy.api.protocol.NbtHandler;
 import dev.emmily.daisy.api.util.TriConsumer;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.inventory.InventoryType;
@@ -81,8 +82,7 @@ public class PaginatedMenu<T>
                        MenuItem previousPageSwitch,
                        MenuItem nextPageSwitch,
                        TriConsumer<Integer, Integer, PageOperand> pageSwitchAction,
-                       InventoryType bukkitType,
-                       boolean renderNow) {
+                       InventoryType bukkitType) {
     super(title, size, items, type, openAction, closeAction);
     this.pageSwitchAction = pageSwitchAction;
     this.inventory = bukkitType ==
@@ -122,10 +122,6 @@ public class PaginatedMenu<T>
     this.skippedSlots.add(previousPageSwitch.getSlot());
     this.skippedSlots.add(nextPageSwitch.getSlot());
     this.pageItems = new ArrayList<>();
-
-    if (renderNow) {
-      render(PageOperand.CURRENT);
-    }
   }
 
   /**
@@ -288,6 +284,12 @@ public class PaginatedMenu<T>
 
   public TriConsumer<Integer, Integer, PageOperand> getPageSwitchAction() {
     return pageSwitchAction;
+  }
+
+  @Override
+  public void open(Player player) {
+    render(PageOperand.CURRENT);
+    super.open(player);
   }
 
   public enum PageOperand {

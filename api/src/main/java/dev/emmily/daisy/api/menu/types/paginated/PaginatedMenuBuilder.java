@@ -25,7 +25,6 @@ public class PaginatedMenuBuilder<T>
   private MenuItem previousPageSwitch;
   private MenuItem nextPageSwitch;
   private TriConsumer<Integer, Integer, PaginatedMenu.PageOperand> pageSwitchAction;
-  private boolean renderNow;
 
   public PaginatedMenuBuilder<T> title(String title) {
     this.title = title;
@@ -216,12 +215,6 @@ public class PaginatedMenuBuilder<T>
     return this;
   }
 
-  public PaginatedMenuBuilder<T> renderNow(boolean renderNow) {
-    this.renderNow = renderNow;
-
-    return this;
-  }
-
   @Override
   public PaginatedMenu<T> build() {
     checkPreconditions();
@@ -238,7 +231,7 @@ public class PaginatedMenuBuilder<T>
       elements, elementParser,
       elementsPerPage, skippedSlots,
       previousPageSwitch, nextPageSwitch,
-      pageSwitchAction, bukkitType, renderNow
+      pageSwitchAction, bukkitType
     );
   }
 }

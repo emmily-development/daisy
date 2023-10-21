@@ -65,6 +65,8 @@ public class PaginatedMenu<T>
    *                           the next page.
    * @param pageSwitchAction   The action executed when the page is switched.
    * @param bukkitType         The bukkit inventory type.
+   * @param renderNow          Whether the menu should be instantaneously
+   *                           rendered or not.
    */
   public PaginatedMenu(String title,
                        int size,
@@ -79,7 +81,8 @@ public class PaginatedMenu<T>
                        MenuItem previousPageSwitch,
                        MenuItem nextPageSwitch,
                        TriConsumer<Integer, Integer, PageOperand> pageSwitchAction,
-                       InventoryType bukkitType) {
+                       InventoryType bukkitType,
+                       boolean renderNow) {
     super(title, size, items, type, openAction, closeAction);
     this.pageSwitchAction = pageSwitchAction;
     this.inventory = bukkitType ==
@@ -120,7 +123,9 @@ public class PaginatedMenu<T>
     this.skippedSlots.add(nextPageSwitch.getSlot());
     this.pageItems = new ArrayList<>();
 
-    render(PageOperand.CURRENT);
+    if (renderNow) {
+      render(PageOperand.CURRENT);
+    }
   }
 
   /**

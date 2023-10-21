@@ -10,6 +10,7 @@
         <module name="daisy-protocol-v1_9_R2" />
         <module name="daisy-protocol-v1_20_R1" />
         <module name="daisy-api" />
+        <module name="daisy-protocol-v1_20_R2" />
         <module name="daisy-protocol-v1_18_R2" />
         <module name="daisy-protocol-v1_19_R3" />
         <module name="daisy-protocol-v1_17_R1" />
@@ -28,6 +29,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="core" target="1.5" />
+      <module name="daisy-protocol-v1_20_R1" target="17" />
       <module name="daisy.daisy-demo" target="1.8" />
       <module name="demo" target="1.5" />
       <module name="protocol-v1_10_R1" target="1.8" />

@@ -7,6 +7,7 @@ import dev.emmily.daisy.api.menu.types.dynamic.DynamicMenuBuilder;
 import dev.emmily.daisy.api.menu.types.dynamic.layout.DynamicLayoutMenuBuilder;
 import dev.emmily.daisy.api.menu.types.layout.LayoutMenuBuilder;
 import dev.emmily.daisy.api.menu.types.paginated.PaginatedMenuBuilder;
+import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.inventory.InventoryHolder;
@@ -182,6 +183,10 @@ public abstract class Menu
     }
 
     throw new IllegalArgumentException("The given menu types are not Minecraft inventory types");
+  }
+
+  public void open(Player player) {
+    player.openInventory(getInventory());
   }
 
   public enum Type {

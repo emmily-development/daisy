@@ -63,12 +63,14 @@ public class InventoryClickListener
         operand = PaginatedMenu.PageOperand.NEXT;
       }
 
-      paginatedMenu.render(operand);
-      paginatedMenu.getPageSwitchAction().accept(
-        paginatedMenu.getCurrentPage() - 1,
-        paginatedMenu.getCurrentPage(),
-        operand
-      );
+      if (operand != null) {
+        paginatedMenu.render(operand);
+        paginatedMenu.getPageSwitchAction().accept(
+          paginatedMenu.getCurrentPage() - 1,
+          paginatedMenu.getCurrentPage(),
+          operand
+        );
+      }
     }
   }
 }

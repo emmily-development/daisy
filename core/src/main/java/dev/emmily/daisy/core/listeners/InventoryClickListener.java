@@ -21,7 +21,7 @@ public class InventoryClickListener
   public void onInventoryClick(InventoryClickEvent event) {
     Inventory inventory = event.getInventory();
     HumanEntity entity = event.getWhoClicked();
-    int slot = event.getSlot();
+    int slot = event.getRawSlot();
 
     if (!(entity instanceof Player)) {
       return;

@@ -33,13 +33,14 @@ public class DynamicLayoutMenu
                            List<Supplier<MenuItem>> suppliableItems,
                            Consumer<DynamicLayoutMenu> updateAction,
                            Map<Character, MenuItem> itemsByKey,
-                           InventoryType bukkitType) {
+                           InventoryType bukkitType,
+                           boolean blockClicks) {
     super(
       title, size, type,
       openAction, closeAction,
       updatePeriod, frames,
       staticItems, suppliableItems,
-      bukkitType
+      bukkitType, blockClicks
     );
     this.inventory = bukkitType ==
       InventoryType.CHEST || bukkitType == InventoryType.ENDER_CHEST

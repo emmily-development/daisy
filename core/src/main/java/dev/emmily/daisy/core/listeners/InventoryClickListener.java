@@ -49,7 +49,12 @@ public class InventoryClickListener
     for (MenuItem item : items) {
       if (item.getSlot() == slot) {
         Predicate<InventoryClickEvent> clickAction = item.getAction();
-        event.setCancelled(clickAction.test(event));
+
+        if (clickAction != null) {
+          event.setCancelled(clickAction.test(event));
+        } else {
+          event.setCancelled(menu.isBlockClicks());
+        }
       }
     }
 

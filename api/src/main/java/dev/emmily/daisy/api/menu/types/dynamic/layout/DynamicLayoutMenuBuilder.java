@@ -231,6 +231,12 @@ public class DynamicLayoutMenuBuilder
     return this;
   }
 
+  public DynamicLayoutMenuBuilder blockClicks(boolean blockClicks) {
+    this.blockClicks = blockClicks;
+
+    return this;
+  }
+
   @Override
   public DynamicLayoutMenu build() {
     checkPreconditions();
@@ -253,7 +259,8 @@ public class DynamicLayoutMenuBuilder
       title, size, type, openAction,
       closeAction, updatePeriod, frames,
       staticItems, suppliableItems,
-      updateAction, itemsByKey, bukkitType
+      updateAction, itemsByKey, bukkitType,
+      blockClicks
     );
   }
 }

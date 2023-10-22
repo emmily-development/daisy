@@ -23,6 +23,7 @@ public abstract class MenuBuilder<T extends Menu> {
   protected InventoryType bukkitType;
   protected Predicate<InventoryOpenEvent> openAction = event -> true;
   protected Consumer<InventoryCloseEvent> closeAction = event -> {};
+  protected boolean blockClicks;
 
   public MenuBuilder<T> title(String title) {
     this.title = title;
@@ -110,6 +111,12 @@ public abstract class MenuBuilder<T extends Menu> {
 
   public MenuBuilder<T> closeAction(Consumer<InventoryCloseEvent> closeAction) {
     this.closeAction = closeAction;
+
+    return this;
+  }
+
+  public MenuBuilder<T> blockClicks(boolean blockClicks) {
+    this.blockClicks = blockClicks;
 
     return this;
   }

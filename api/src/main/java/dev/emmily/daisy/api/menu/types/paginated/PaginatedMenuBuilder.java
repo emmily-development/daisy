@@ -4,6 +4,7 @@ import com.google.common.base.Preconditions;
 import dev.emmily.daisy.api.item.MenuItem;
 import dev.emmily.daisy.api.menu.Menu;
 import dev.emmily.daisy.api.menu.types.builder.MenuBuilder;
+import dev.emmily.daisy.api.menu.types.layout.LayoutMenuBuilder;
 import dev.emmily.daisy.api.util.TriConsumer;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
@@ -215,6 +216,13 @@ public class PaginatedMenuBuilder<T>
     return this;
   }
 
+  public PaginatedMenuBuilder<T> blockClicks(boolean blockClicks) {
+    this.blockClicks = blockClicks;
+
+    return this;
+  }
+
+
   @Override
   public PaginatedMenu<T> build() {
     checkPreconditions();
@@ -231,7 +239,7 @@ public class PaginatedMenuBuilder<T>
       elements, elementParser,
       elementsPerPage, skippedSlots,
       previousPageSwitch, nextPageSwitch,
-      pageSwitchAction, bukkitType
+      pageSwitchAction, bukkitType, blockClicks
     );
   }
 }

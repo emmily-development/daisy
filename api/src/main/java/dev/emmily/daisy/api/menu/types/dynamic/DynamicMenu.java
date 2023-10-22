@@ -28,13 +28,14 @@ public class DynamicMenu
                      List<MenuItem> staticItems,
                      List<Supplier<MenuItem>> suppliableItems,
                      Consumer<DynamicMenu> updateAction,
-                     InventoryType bukkitType) {
+                     InventoryType bukkitType,
+                     boolean blockClicks) {
     super(
       title, size, type,
       openAction, closeAction,
       updatePeriod, frames,
       staticItems, suppliableItems,
-      bukkitType
+      bukkitType, blockClicks
     );
     this.inventory = bukkitType ==
       InventoryType.CHEST || bukkitType == InventoryType.ENDER_CHEST

@@ -5,7 +5,6 @@ import dev.emmily.daisy.api.menu.Menu;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.inventory.InventoryType;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,8 +32,9 @@ public abstract class AbstractDynamicMenu<T>
                              List<List<T>> frames,
                              List<MenuItem> staticItems,
                              List<Supplier<MenuItem>> suppliableItems,
-                             InventoryType bukkitType) {
-    super(title, size, new ArrayList<>(), type, openAction, closeAction);
+                             InventoryType bukkitType,
+                             boolean blockClicks) {
+    super(title, size, new ArrayList<>(), type, openAction, closeAction, blockClicks);
     this.updatePeriod = updatePeriod;
     this.frames = frames;
     this.staticItems = staticItems;

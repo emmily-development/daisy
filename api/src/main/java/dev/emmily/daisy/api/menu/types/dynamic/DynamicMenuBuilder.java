@@ -188,6 +188,12 @@ public class DynamicMenuBuilder
     return this;
   }
 
+  public DynamicMenuBuilder blockClicks(boolean blockClicks) {
+    this.blockClicks = blockClicks;
+
+    return this;
+  }
+
   @Override
   public DynamicMenu build() {
     checkPreconditions();
@@ -210,7 +216,7 @@ public class DynamicMenuBuilder
       openAction, closeAction,
       updatePeriod, frames,
       staticItems, suppliableItems,
-      updateAction, bukkitType
+      updateAction, bukkitType, blockClicks
     );
   }
 }

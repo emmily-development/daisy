@@ -10,9 +10,7 @@ import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 
-import java.beans.ConstructorProperties;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
@@ -30,11 +28,13 @@ public class LayoutMenu
                     Consumer<InventoryCloseEvent> closeAction,
                     List<String> layout,
                     Map<Character, MenuItem> items,
-                    InventoryType bukkitType) {
+                    InventoryType bukkitType,
+                    boolean blockClicks) {
     super(
       title, ChestSize.toSlots(layout.size()),
       new ArrayList<>(), type,
-      openAction, closeAction
+      openAction, closeAction,
+      blockClicks
     );
     this.layout = layout;
     this.items = items;

@@ -146,6 +146,12 @@ public class LayoutMenuBuilder
     return this;
   }
 
+  public LayoutMenuBuilder blockClicks(boolean blockClicks) {
+    this.blockClicks = blockClicks;
+
+    return this;
+  }
+
   @Override
   public LayoutMenu build() {
     checkPreconditions();
@@ -154,7 +160,7 @@ public class LayoutMenuBuilder
     return new LayoutMenu(
       title, type, openAction,
       closeAction, layout, items,
-      bukkitType
+      bukkitType, blockClicks
     );
   }
 }

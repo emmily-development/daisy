@@ -80,8 +80,9 @@ public class PaginatedMenu<T>
                        MenuItem previousPageSwitch,
                        MenuItem nextPageSwitch,
                        TriConsumer<Integer, Integer, PageOperand> pageSwitchAction,
-                       InventoryType bukkitType) {
-    super(title, size, items, type, openAction, closeAction);
+                       InventoryType bukkitType,
+                       boolean blockClicks) {
+    super(title, size, items, type, openAction, closeAction, blockClicks);
     this.pageSwitchAction = pageSwitchAction;
     this.inventory = bukkitType ==
       InventoryType.CHEST || bukkitType == InventoryType.ENDER_CHEST

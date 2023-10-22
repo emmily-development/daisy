@@ -108,7 +108,13 @@ public class ChestMenuBuilder
 
     return this;
   }
-  
+
+  public ChestMenuBuilder blockClicks(boolean blockClicks) {
+    this.blockClicks = blockClicks;
+
+    return this;
+  }
+
   @Override
   public ChestMenu build() {
     checkPreconditions();
@@ -116,8 +122,8 @@ public class ChestMenuBuilder
 
     return new ChestMenu(
       title, items,
-      size, type.get(0), openAction,
-      closeAction
+      size, type, openAction,
+      closeAction, blockClicks
     );
   }
 }

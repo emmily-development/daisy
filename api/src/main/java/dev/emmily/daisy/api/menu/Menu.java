@@ -53,6 +53,7 @@ public abstract class Menu
   private final List<Type> type;
   private final Predicate<InventoryOpenEvent> openAction;
   private final Consumer<InventoryCloseEvent> closeAction;
+  private final boolean blockClicks;
 
   /**
    * Creates a menu with the given
@@ -69,15 +70,20 @@ public abstract class Menu
    * @param closeAction The action executed
    *                    when the inventory
    *                    is closed
+   * @param blockClicks Whether clicks in unknown
+   *                    slots must be cancelled or
+   *                    not.
    */
   public Menu(String title,
               int size,
               List<MenuItem> items,
               List<Type> type,
               Predicate<InventoryOpenEvent> openAction,
-              Consumer<InventoryCloseEvent> closeAction) {
+              Consumer<InventoryCloseEvent> closeAction,
+              boolean blockClicks) {
     this.title = title;
     this.type = type;
+    this.blockClicks = blockClicks;
     int maxRows = findMaxRows();
     if (size < 9 && (maxRows == 3 || maxRows == 6)) {
       this.size = ChestSize.toSlots(size);
@@ -183,6 +189,10 @@ public abstract class Menu
     }
 
     throw new IllegalArgumentException("The given menu types are not Minecraft inventory types");
+  }
+
+  public boolean isBlockClicks() {
+    return blockClicks;
   }
 
   public void open(Player player) {

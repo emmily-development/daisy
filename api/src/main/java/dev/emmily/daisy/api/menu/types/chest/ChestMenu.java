@@ -19,10 +19,11 @@ public class ChestMenu
   public ChestMenu(String title,
                    List<MenuItem> items,
                    int size,
-                   Type type,
+                   List<Type> type,
                    Predicate<InventoryOpenEvent> openAction,
-                   Consumer<InventoryCloseEvent> closeAction) {
-    super(title, size, items, Collections.singletonList(type), openAction, closeAction);
+                   Consumer<InventoryCloseEvent> closeAction,
+                   boolean blockClicks) {
+    super(title, size, items, type, openAction, closeAction, blockClicks);
     this.inventory = Bukkit.createInventory(this, getSize(), getTitle());
     for (MenuItem item : getItems()) {
       if (item == null) {

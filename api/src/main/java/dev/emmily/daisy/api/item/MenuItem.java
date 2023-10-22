@@ -5,6 +5,7 @@ import dev.emmily.daisy.api.protocol.NbtHandler;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Objects;
 import java.util.function.Predicate;
 
 public class MenuItem {
@@ -46,6 +47,19 @@ public class MenuItem {
 
   public MenuItem copy() {
     return new MenuItem(new ItemStack(item), slot, action);
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    MenuItem menuItem = (MenuItem) o;
+    return slot == menuItem.slot && Objects.equals(item, menuItem.item) && Objects.equals(action, menuItem.action);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(item, slot, action);
   }
 
   public static class Builder {

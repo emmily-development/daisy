@@ -66,8 +66,6 @@ public class PaginatedMenu<T>
    *                           the next page.
    * @param pageSwitchAction   The action executed when the page is switched.
    * @param bukkitType         The bukkit inventory type.
-   * @param renderNow          Whether the menu should be instantaneously
-   *                           rendered or not.
    */
   public PaginatedMenu(String title,
                        int size,

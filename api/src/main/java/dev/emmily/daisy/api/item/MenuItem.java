@@ -54,12 +54,12 @@ public class MenuItem {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     MenuItem menuItem = (MenuItem) o;
-    return slot == menuItem.slot && Objects.equals(item, menuItem.item) && Objects.equals(action, menuItem.action);
+    return slot == menuItem.slot && Objects.equals(item, menuItem.item);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(item, slot, action);
+    return Objects.hash(item, slot);
   }
 
   public static class Builder {

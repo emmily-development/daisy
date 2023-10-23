@@ -55,6 +55,114 @@ public class NbtHandlerImpl
   }
 
   @Override
+  public byte getByte(ItemStack item,
+                      String key) {
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).v();
+
+    if (compound == null) {
+      return 0;
+    }
+
+    return compound.f(key);
+  }
+
+  @Override
+  public short getShort(ItemStack item,
+                        String key) {
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).v();
+
+    if (compound == null) {
+      return 0;
+    }
+
+    return compound.g(key);
+  }
+
+  @Override
+  public int getInt(ItemStack item,
+                    String key) {
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).v();
+
+    if (compound == null) {
+      return 0;
+    }
+
+    return compound.h(key);
+  }
+
+  @Override
+  public long getLong(ItemStack item,
+                      String key) {
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).v();
+
+    if (compound == null) {
+      return 0;
+    }
+
+    return compound.i(key);
+  }
+
+  @Override
+  public float getFloat(ItemStack item,
+                        String key) {
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).v();
+
+    if (compound == null) {
+      return 0;
+    }
+
+    return compound.j(key);
+  }
+
+  @Override
+  public double getDouble(ItemStack item,
+                          String key) {
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).v();
+
+    if (compound == null) {
+      return 0;
+    }
+
+    return compound.k(key);
+  }
+
+  @Override
+  public byte[] getByteArray(ItemStack item,
+                             String key) {
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).v();
+
+    if (compound == null) {
+      return new byte[0];
+    }
+
+    return compound.m(key);
+  }
+
+  @Override
+  public String getString(ItemStack item,
+                          String key) {
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).v();
+
+    if (compound == null) {
+      return "";
+    }
+
+    return compound.l(key);
+  }
+
+  @Override
+  public int[] getIntArray(ItemStack item,
+                           String key) {
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).v();
+
+    if (compound == null) {
+      return new int[0];
+    }
+
+    return compound.n(key);
+  }
+  
+  @Override
   public Map<String, Object> getTags(ItemStack item) {
     Map<String, Object> tags = new HashMap<>();
 
@@ -81,7 +189,7 @@ public class NbtHandlerImpl
         case 7 -> compound.m(key);
         case 8 -> compound.l(key);
         case 11 -> compound.n(key);
-        default -> throw new IllegalStateException("Unexpected value: " + nbtBase.a());
+        default -> throw new IllegalStateException("Unexpected value: " + nbtBase.b());
       });
     }
 

@@ -56,6 +56,114 @@ public class NbtHandlerImpl
   }
 
   @Override
+  public byte getByte(ItemStack item,
+                      String key) {
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).getTag();
+
+    if (compound == null) {
+      return 0;
+    }
+
+    return compound.getByte(key);
+  }
+
+  @Override
+  public short getShort(ItemStack item,
+                        String key) {
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).getTag();
+
+    if (compound == null) {
+      return 0;
+    }
+
+    return compound.getShort(key);
+  }
+
+  @Override
+  public int getInt(ItemStack item,
+                    String key) {
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).getTag();
+
+    if (compound == null) {
+      return 0;
+    }
+
+    return compound.getInt(key);
+  }
+
+  @Override
+  public long getLong(ItemStack item,
+                      String key) {
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).getTag();
+
+    if (compound == null) {
+      return 0;
+    }
+
+    return compound.getLong(key);
+  }
+
+  @Override
+  public float getFloat(ItemStack item,
+                        String key) {
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).getTag();
+
+    if (compound == null) {
+      return 0;
+    }
+
+    return compound.getFloat(key);
+  }
+
+  @Override
+  public double getDouble(ItemStack item,
+                          String key) {
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).getTag();
+
+    if (compound == null) {
+      return 0;
+    }
+
+    return compound.getDouble(key);
+  }
+
+  @Override
+  public byte[] getByteArray(ItemStack item,
+                             String key) {
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).getTag();
+
+    if (compound == null) {
+      return new byte[0];
+    }
+
+    return compound.getByteArray(key);
+  }
+
+  @Override
+  public String getString(ItemStack item,
+                          String key) {
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).getTag();
+
+    if (compound == null) {
+      return "";
+    }
+
+    return compound.getString(key);
+  }
+
+  @Override
+  public int[] getIntArray(ItemStack item,
+                           String key) {
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).getTag();
+
+    if (compound == null) {
+      return new int[0];
+    }
+
+    return compound.getIntArray(key);
+  }
+
+  @Override
   public Map<String, Object> getTags(ItemStack item) {
     Map<String, Object> tags = new HashMap<>();
 

@@ -71,7 +71,7 @@ public class NbtHandlerImpl
         continue;
       }
 
-      tags.put(key, switch (nbtBase.a()) {
+      tags.put(key, switch (nbtBase.b()) {
         case 1 -> compound.f(key);
         case 2 -> compound.g(key);
         case 3 -> compound.h(key);

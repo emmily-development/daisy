@@ -11,7 +11,7 @@ import java.io.IOException;
  * types, such as files or strings.
  *
  * <p>
- *   Each implementation must:
+ * Each implementation must:
  *
  *   <ol>
  *     <li>Implement a single file format</li>

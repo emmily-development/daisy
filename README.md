@@ -56,7 +56,7 @@ dependencies {
 
 ## Usage
 
-Check the [wiki](https://github.com/emmily-development/daisy/wiki) for 
+Check the [wiki](https://github.com/emmily-development/daisy/wiki) for
 usage.
 
 ---------------------------------------------------------------------------

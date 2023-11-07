@@ -3,14 +3,10 @@ package dev.emmily.daisy.api.menu.types.builder;
 import com.google.common.base.Preconditions;
 import dev.emmily.daisy.api.item.MenuItem;
 import dev.emmily.daisy.api.menu.Menu;
-import dev.emmily.daisy.api.menu.types.chest.ChestSize;
-import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.event.inventory.InventoryOpenEvent;
-import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.event.inventory.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -21,9 +17,10 @@ public abstract class MenuBuilder<T extends Menu> {
   protected List<MenuItem> items = new ArrayList<>();
   protected List<Menu.Type> type;
   protected InventoryType bukkitType;
-  protected Predicate<InventoryOpenEvent> openAction = event -> true;
-  protected Consumer<InventoryCloseEvent> closeAction = event -> {};
-  protected boolean blockClicks;
+  protected Predicate<InventoryOpenEvent> openAction;
+  protected Consumer<InventoryCloseEvent> closeAction;
+  protected Predicate<InventoryDragEvent> dragAction;
+  protected Predicate<InventoryClickEvent> unknownSlotClickAction;
 
   public MenuBuilder<T> title(String title) {
     this.title = title;
@@ -115,8 +112,14 @@ public abstract class MenuBuilder<T extends Menu> {
     return this;
   }
 
-  public MenuBuilder<T> blockClicks(boolean blockClicks) {
-    this.blockClicks = blockClicks;
+  public MenuBuilder<T> dragAction(Predicate<InventoryDragEvent> dragAction) {
+    this.dragAction = dragAction;
+
+    return this;
+  }
+
+  public MenuBuilder<T> unknownSlotClickAction(Predicate<InventoryClickEvent> unknownSlotClickAction) {
+    this.unknownSlotClickAction = unknownSlotClickAction;
 
     return this;
   }

@@ -49,7 +49,7 @@ public interface NbtHandler {
    *
    * @param item The item to get the
    *             byte from.
-   * @param key The key of the byte.
+   * @param key  The key of the byte.
    * @return The {@code byte} corresponding
    * to the given {@code key}.
    */
@@ -62,7 +62,7 @@ public interface NbtHandler {
    *
    * @param item The item to get the
    *             short from.
-   * @param key The key of the short.
+   * @param key  The key of the short.
    * @return The {@code short} corresponding
    * to the given {@code key}.
    */
@@ -75,7 +75,7 @@ public interface NbtHandler {
    *
    * @param item The item to get the
    *             int from.
-   * @param key The key of the int.
+   * @param key  The key of the int.
    * @return The {@code int} corresponding
    * to the given {@code key}.
    */
@@ -88,7 +88,7 @@ public interface NbtHandler {
    *
    * @param item The item to get the
    *             long from.
-   * @param key The key of the long.
+   * @param key  The key of the long.
    * @return The {@code long} corresponding
    * to the given {@code key}.
    */
@@ -101,7 +101,7 @@ public interface NbtHandler {
    *
    * @param item The item to get the
    *             float from.
-   * @param key The key of the float.
+   * @param key  The key of the float.
    * @return The {@code float} corresponding
    * to the given {@code key}.
    */
@@ -114,7 +114,7 @@ public interface NbtHandler {
    *
    * @param item The item to get the
    *             double from.
-   * @param key The key of the double.
+   * @param key  The key of the double.
    * @return The {@code double} corresponding
    * to the given {@code key}.
    */
@@ -127,7 +127,7 @@ public interface NbtHandler {
    *
    * @param item The item to get the
    *             byte array from.
-   * @param key The key of the byte array.
+   * @param key  The key of the byte array.
    * @return The {@code byte array} corresponding
    * to the given {@code key}.
    */
@@ -140,7 +140,7 @@ public interface NbtHandler {
    *
    * @param item The item to get the
    *             String from.
-   * @param key The key of the String.
+   * @param key  The key of the String.
    * @return The {@code String} corresponding
    * to the given {@code key}.
    */
@@ -153,13 +153,24 @@ public interface NbtHandler {
    *
    * @param item The item to get the
    *             int[] from.
-   * @param key The key of the int[].
+   * @param key  The key of the int[].
    * @return The {@code int[]} corresponding
    * to the given {@code key}.
    */
   int[] getIntArray(ItemStack item,
                     String key);
 
+  /**
+   * Removes the tag corresponding to
+   * the given {@code key} from the
+   * given {@code item}.
+   *
+   * @param item The item to remove
+   *             the tag from.
+   * @param key  The key of the tag.
+   */
+  void removeTag(ItemStack item,
+                 String key);
 
   /**
    * Returns the list of all the
@@ -175,7 +186,6 @@ public interface NbtHandler {
   Map<String, Object> getTags(ItemStack item);
 
   public class Holder {
-    private static volatile NbtHandler instance;
     private static final Object LOCK = new Object();
     private static final String PROTOCOL_CLASS_PATTERN = "dev.emmily.daisy.protocol.%s";
     private static final String SERVER_VERSION = Bukkit
@@ -183,6 +193,7 @@ public interface NbtHandler {
       .getClass()
       .getName()
       .split("\\.")[3];
+    private static volatile NbtHandler instance;
 
     public static NbtHandler getInstance() {
       if (instance == null) {

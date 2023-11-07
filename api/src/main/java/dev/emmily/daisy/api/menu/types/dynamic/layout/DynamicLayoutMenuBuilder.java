@@ -4,16 +4,14 @@ import com.google.common.base.Preconditions;
 import dev.emmily.daisy.api.item.MenuItem;
 import dev.emmily.daisy.api.menu.Menu;
 import dev.emmily.daisy.api.menu.types.builder.MenuBuilder;
-import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.event.inventory.InventoryOpenEvent;
-import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.event.inventory.*;
 
 import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-public class DynamicLayoutMenuBuilder 
+public class DynamicLayoutMenuBuilder
   extends MenuBuilder<DynamicLayoutMenu> {
   private long updatePeriod;
   private List<List<String>> frames;
@@ -99,7 +97,7 @@ public class DynamicLayoutMenuBuilder
 
     return this;
   }
-  
+
   public DynamicLayoutMenuBuilder openAction(Predicate<InventoryOpenEvent> openAction) {
     this.openAction = openAction;
 
@@ -176,7 +174,7 @@ public class DynamicLayoutMenuBuilder
   }
 
   public DynamicLayoutMenuBuilder addStaticItems(List<MenuItem> items) {
-    if (staticItems == null){
+    if (staticItems == null) {
       staticItems = new ArrayList<>();
     }
 
@@ -211,7 +209,7 @@ public class DynamicLayoutMenuBuilder
   }
 
   public DynamicLayoutMenuBuilder addSuppliableItems(List<Supplier<MenuItem>> items) {
-    if (suppliableItems == null){
+    if (suppliableItems == null) {
       suppliableItems = new ArrayList<>();
     }
 
@@ -231,8 +229,14 @@ public class DynamicLayoutMenuBuilder
     return this;
   }
 
-  public DynamicLayoutMenuBuilder blockClicks(boolean blockClicks) {
-    this.blockClicks = blockClicks;
+  public DynamicLayoutMenuBuilder dragAction(Predicate<InventoryDragEvent> dragAction) {
+    this.dragAction = dragAction;
+
+    return this;
+  }
+
+  public DynamicLayoutMenuBuilder unknownSlotClickAction(Predicate<InventoryClickEvent> unknownSlotClickAction) {
+    this.unknownSlotClickAction = unknownSlotClickAction;
 
     return this;
   }
@@ -252,15 +256,16 @@ public class DynamicLayoutMenuBuilder
     }
 
     if (updateAction == null) {
-      updateAction = menu -> {};
+      updateAction = menu -> {
+      };
     }
 
     return new DynamicLayoutMenu(
       title, size, type, openAction,
-      closeAction, updatePeriod, frames,
-      staticItems, suppliableItems,
-      updateAction, itemsByKey, bukkitType,
-      blockClicks
+      closeAction, dragAction, unknownSlotClickAction,
+      updatePeriod, frames, staticItems,
+      suppliableItems, updateAction,
+      itemsByKey, bukkitType
     );
   }
 }

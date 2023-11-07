@@ -3,11 +3,8 @@ package dev.emmily.daisy.api.menu.types.layout;
 import com.google.common.base.Preconditions;
 import dev.emmily.daisy.api.item.MenuItem;
 import dev.emmily.daisy.api.menu.Menu;
-import dev.emmily.daisy.api.menu.types.chest.ChestSize;
 import dev.emmily.daisy.api.menu.types.builder.MenuBuilder;
-import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.event.inventory.InventoryOpenEvent;
-import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.event.inventory.*;
 
 import java.util.*;
 import java.util.function.Consumer;
@@ -91,13 +88,13 @@ public class LayoutMenuBuilder
   public LayoutMenuBuilder addTypes(Menu.Type... types) {
     return addTypes(Arrays.asList(types));
   }
-  
+
   public LayoutMenuBuilder bukkitType(InventoryType bukkitType) {
     this.bukkitType = bukkitType;
 
     return this;
   }
-  
+
   public LayoutMenuBuilder openAction(Predicate<InventoryOpenEvent> openAction) {
     this.openAction = openAction;
 
@@ -146,8 +143,14 @@ public class LayoutMenuBuilder
     return this;
   }
 
-  public LayoutMenuBuilder blockClicks(boolean blockClicks) {
-    this.blockClicks = blockClicks;
+  public LayoutMenuBuilder dragAction(Predicate<InventoryDragEvent> dragAction) {
+    this.dragAction = dragAction;
+
+    return this;
+  }
+
+  public LayoutMenuBuilder unknownSlotClickAction(Predicate<InventoryClickEvent> unknownSlotClickAction) {
+    this.unknownSlotClickAction = unknownSlotClickAction;
 
     return this;
   }
@@ -159,8 +162,9 @@ public class LayoutMenuBuilder
 
     return new LayoutMenu(
       title, type, openAction,
-      closeAction, layout, items,
-      bukkitType, blockClicks
+      closeAction, dragAction,
+      unknownSlotClickAction,
+      layout, items, bukkitType
     );
   }
 }

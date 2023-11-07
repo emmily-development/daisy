@@ -2,12 +2,9 @@ package dev.emmily.daisy.api.menu.types.dynamic;
 
 import dev.emmily.daisy.api.item.MenuItem;
 import org.bukkit.Bukkit;
-import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.event.inventory.InventoryOpenEvent;
-import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.event.inventory.*;
 import org.bukkit.inventory.Inventory;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -23,19 +20,20 @@ public class DynamicMenu
                      List<Type> type,
                      Predicate<InventoryOpenEvent> openAction,
                      Consumer<InventoryCloseEvent> closeAction,
+                     Predicate<InventoryDragEvent> dragAction,
+                     Predicate<InventoryClickEvent> unknownSlotClickAction,
                      long updatePeriod,
                      List<List<MenuItem>> frames,
                      List<MenuItem> staticItems,
                      List<Supplier<MenuItem>> suppliableItems,
                      Consumer<DynamicMenu> updateAction,
-                     InventoryType bukkitType,
-                     boolean blockClicks) {
+                     InventoryType bukkitType) {
     super(
       title, size, type,
       openAction, closeAction,
-      updatePeriod, frames,
-      staticItems, suppliableItems,
-      bukkitType, blockClicks
+      dragAction, unknownSlotClickAction,
+      updatePeriod, frames, staticItems,
+      suppliableItems, bukkitType
     );
     this.inventory = bukkitType ==
       InventoryType.CHEST || bukkitType == InventoryType.ENDER_CHEST

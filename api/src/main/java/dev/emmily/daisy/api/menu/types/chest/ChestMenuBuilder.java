@@ -4,13 +4,10 @@ import com.google.common.base.Preconditions;
 import dev.emmily.daisy.api.item.MenuItem;
 import dev.emmily.daisy.api.menu.Menu;
 import dev.emmily.daisy.api.menu.types.builder.MenuBuilder;
-import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.event.inventory.InventoryOpenEvent;
-import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.event.inventory.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -109,8 +106,14 @@ public class ChestMenuBuilder
     return this;
   }
 
-  public ChestMenuBuilder blockClicks(boolean blockClicks) {
-    this.blockClicks = blockClicks;
+  public ChestMenuBuilder dragAction(Predicate<InventoryDragEvent> dragAction) {
+    this.dragAction = dragAction;
+
+    return this;
+  }
+
+  public ChestMenuBuilder unknownSlotClickAction(Predicate<InventoryClickEvent> unknownSlotClickAction) {
+    this.unknownSlotClickAction = unknownSlotClickAction;
 
     return this;
   }
@@ -123,7 +126,8 @@ public class ChestMenuBuilder
     return new ChestMenu(
       title, items,
       size, type, openAction,
-      closeAction, blockClicks
+      closeAction, dragAction,
+      unknownSlotClickAction
     );
   }
 }

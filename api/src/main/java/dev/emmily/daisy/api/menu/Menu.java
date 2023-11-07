@@ -8,7 +8,9 @@ import dev.emmily.daisy.api.menu.types.dynamic.layout.DynamicLayoutMenuBuilder;
 import dev.emmily.daisy.api.menu.types.layout.LayoutMenuBuilder;
 import dev.emmily.daisy.api.menu.types.paginated.PaginatedMenuBuilder;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.inventory.InventoryHolder;
 
@@ -22,6 +24,58 @@ import java.util.function.Predicate;
 // @JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, property = "@class")
 public abstract class Menu
   implements InventoryHolder {
+  protected final String title;
+  protected final int size;
+  private final List<MenuItem> items;
+  private final List<Type> type;
+  private final Predicate<InventoryOpenEvent> openAction;
+  private final Consumer<InventoryCloseEvent> closeAction;
+  private final Predicate<InventoryDragEvent> dragAction;
+  private final Predicate<InventoryClickEvent> unknownSlotClickAction;
+  /**
+   * Creates a menu with the given
+   * parameters.
+   *
+   * @param title                  The title of the menu.
+   * @param size                   The size of the menu.
+   * @param items                  The items contained in
+   *                               the menu.
+   * @param type                   The types of the menu.
+   * @param openAction             The action executed
+   *                               when the inventory
+   *                               is opened.
+   * @param closeAction            The action executed
+   *                               when the inventory
+   *                               is closed
+   * @param dragAction             The action executed when
+   *                               items are dragged to the
+   *                               menu.
+   * @param unknownSlotClickAction The action performed when
+   *                               an unknown slot is clicked.
+   */
+  public Menu(String title,
+              int size,
+              List<MenuItem> items,
+              List<Type> type,
+              Predicate<InventoryOpenEvent> openAction,
+              Consumer<InventoryCloseEvent> closeAction,
+              Predicate<InventoryDragEvent> dragAction,
+              Predicate<InventoryClickEvent> unknownSlotClickAction) {
+    this.title = title;
+    this.type = type;
+    this.unknownSlotClickAction = unknownSlotClickAction;
+    int maxRows = findMaxRows();
+    if (size < 9 && (maxRows == 3 || maxRows == 6)) {
+      this.size = ChestSize.toSlots(size);
+    } else {
+      this.size = size;
+    }
+    this.items = items;
+    this.openAction = openAction;
+    this.closeAction = closeAction;
+    this.dragAction = dragAction;
+  }
+
   public static ChestMenuBuilder chestMenuBuilder() {
     return new ChestMenuBuilder()
       .addType(Type.CHEST);
@@ -45,54 +99,6 @@ public abstract class Menu
   public static <T> PaginatedMenuBuilder<T> paginatedMenuBuilder() {
     return new PaginatedMenuBuilder<T>()
       .addType(Type.PAGINATED);
-  }
-
-  protected final String title;
-  protected final int size;
-  private final List<MenuItem> items;
-  private final List<Type> type;
-  private final Predicate<InventoryOpenEvent> openAction;
-  private final Consumer<InventoryCloseEvent> closeAction;
-  private final boolean blockClicks;
-
-  /**
-   * Creates a menu with the given
-   * parameters.
-   *
-   * @param title       The title of the menu.
-   * @param size        The size of the menu.
-   * @param items       The items contained in
-   *                    the menu.
-   * @param type        The types of the menu.
-   * @param openAction  The action executed
-   *                    when the inventory
-   *                    is opened.
-   * @param closeAction The action executed
-   *                    when the inventory
-   *                    is closed
-   * @param blockClicks Whether clicks in unknown
-   *                    slots must be cancelled or
-   *                    not.
-   */
-  public Menu(String title,
-              int size,
-              List<MenuItem> items,
-              List<Type> type,
-              Predicate<InventoryOpenEvent> openAction,
-              Consumer<InventoryCloseEvent> closeAction,
-              boolean blockClicks) {
-    this.title = title;
-    this.type = type;
-    this.blockClicks = blockClicks;
-    int maxRows = findMaxRows();
-    if (size < 9 && (maxRows == 3 || maxRows == 6)) {
-      this.size = ChestSize.toSlots(size);
-    } else {
-      this.size = size;
-    }
-    this.items = items;
-    this.openAction = openAction;
-    this.closeAction = closeAction;
   }
 
   /**
@@ -159,6 +165,14 @@ public abstract class Menu
     return closeAction;
   }
 
+  public Predicate<InventoryDragEvent> getDragAction() {
+    return dragAction;
+  }
+
+  public Predicate<InventoryClickEvent> getUnknownSlotClickAction() {
+    return unknownSlotClickAction;
+  }
+
   public List<MenuItem> getItems() {
     return items;
   }
@@ -189,10 +203,6 @@ public abstract class Menu
     }
 
     throw new IllegalArgumentException("The given menu types are not Minecraft inventory types");
-  }
-
-  public boolean isBlockClicks() {
-    return blockClicks;
   }
 
   public void open(Player player) {

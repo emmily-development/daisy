@@ -4,7 +4,6 @@ import dev.emmily.daisy.api.item.MenuItem;
 import dev.emmily.daisy.api.menu.Menu;
 import dev.emmily.daisy.api.menu.types.dynamic.AbstractDynamicMenu;
 import dev.emmily.daisy.api.menu.types.paginated.PaginatedMenu;
-import dev.emmily.daisy.api.protocol.NbtHandler;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -46,15 +45,26 @@ public class InventoryClickListener
 
     List<MenuItem> items = menu.getItems();
 
+    boolean foundItem = false;
+
     for (MenuItem item : items) {
       if (item.getSlot() == slot) {
+        foundItem = true;
         Predicate<InventoryClickEvent> clickAction = item.getAction();
 
         if (clickAction != null) {
           event.setCancelled(clickAction.test(event));
-        } else {
-          event.setCancelled(menu.isBlockClicks());
         }
+
+        break;
+      }
+    }
+
+    if (!foundItem) {
+      Predicate<InventoryClickEvent> unknownSlotClickAction = menu.getUnknownSlotClickAction();
+
+      if (unknownSlotClickAction != null) {
+        event.setCancelled(unknownSlotClickAction.test(event));
       }
     }
 
@@ -63,7 +73,7 @@ public class InventoryClickListener
 
       PaginatedMenu.PageOperand operand = null;
       if (slot == paginatedMenu.getPreviousPageSwitch().getSlot() && paginatedMenu.hasPreviousPage()) {
-         operand = PaginatedMenu.PageOperand.PREVIOUS;
+        operand = PaginatedMenu.PageOperand.PREVIOUS;
       } else if (slot == paginatedMenu.getNextPageSwitch().getSlot() && paginatedMenu.hasNextPage()) {
         operand = PaginatedMenu.PageOperand.NEXT;
       }

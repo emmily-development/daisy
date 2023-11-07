@@ -4,9 +4,7 @@ import com.google.common.base.Preconditions;
 import dev.emmily.daisy.api.item.MenuItem;
 import dev.emmily.daisy.api.menu.Menu;
 import dev.emmily.daisy.api.menu.types.builder.MenuBuilder;
-import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.event.inventory.InventoryOpenEvent;
-import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.event.inventory.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,14 +14,14 @@ import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-public class DynamicMenuBuilder 
+public class DynamicMenuBuilder
   extends MenuBuilder<DynamicMenu> {
   private long updatePeriod;
   private List<List<MenuItem>> frames;
   private List<MenuItem> staticItems;
   private List<Supplier<MenuItem>> suppliableItems;
   private Consumer<DynamicMenu> updateAction;
-  
+
   public DynamicMenuBuilder title(String title) {
     this.title = title;
 
@@ -168,7 +166,7 @@ public class DynamicMenuBuilder
   }
 
   public DynamicMenuBuilder addSuppliableItems(List<Supplier<MenuItem>> items) {
-    if (suppliableItems == null){
+    if (suppliableItems == null) {
       suppliableItems = new ArrayList<>();
     }
 
@@ -188,8 +186,14 @@ public class DynamicMenuBuilder
     return this;
   }
 
-  public DynamicMenuBuilder blockClicks(boolean blockClicks) {
-    this.blockClicks = blockClicks;
+  public DynamicMenuBuilder dragAction(Predicate<InventoryDragEvent> dragAction) {
+    this.dragAction = dragAction;
+
+    return this;
+  }
+
+  public DynamicMenuBuilder unknownSlotClickAction(Predicate<InventoryClickEvent> unknownSlotClickAction) {
+    this.unknownSlotClickAction = unknownSlotClickAction;
 
     return this;
   }
@@ -208,15 +212,16 @@ public class DynamicMenuBuilder
     }
 
     if (updateAction == null) {
-      updateAction = menu -> {};
+      updateAction = menu -> {
+      };
     }
 
     return new DynamicMenu(
       title, size, type,
       openAction, closeAction,
-      updatePeriod, frames,
-      staticItems, suppliableItems,
-      updateAction, bukkitType, blockClicks
+      dragAction, unknownSlotClickAction,
+      updatePeriod, frames, staticItems,
+      suppliableItems, updateAction, bukkitType
     );
   }
 }

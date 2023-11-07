@@ -1,13 +1,13 @@
 package dev.emmily.daisydemo.config;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
-
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
 
 public class ConfigurationFile extends YamlConfiguration {
   private final String filename;

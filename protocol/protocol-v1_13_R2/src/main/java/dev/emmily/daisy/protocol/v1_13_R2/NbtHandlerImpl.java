@@ -155,6 +155,22 @@ public class NbtHandlerImpl
   }
 
   @Override
+  public void removeTag(ItemStack item,
+                        String key) {
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).getTag();
+
+    if (compound == null) {
+      return;
+    }
+
+    if (!compound.hasKey(key)) {
+      return;
+    }
+
+    compound.remove(key);
+  }
+
+  @Override
   public boolean hasTag(ItemStack item,
                         String key) {
     NBTTagCompound compound = CraftItemStack.asNMSCopy(item).getTag();

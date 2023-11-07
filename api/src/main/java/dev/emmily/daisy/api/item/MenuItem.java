@@ -9,9 +9,9 @@ import java.util.Objects;
 import java.util.function.Predicate;
 
 public class MenuItem {
+  private final Predicate<InventoryClickEvent> action;
   private ItemStack item;
   private int slot;
-  private final Predicate<InventoryClickEvent> action;
 
   private MenuItem(ItemStack item,
                    int slot,

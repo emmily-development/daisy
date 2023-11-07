@@ -6,9 +6,7 @@ import dev.emmily.daisy.api.protocol.NbtHandler;
 import dev.emmily.daisy.api.util.TriConsumer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.event.inventory.InventoryOpenEvent;
-import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.event.inventory.*;
 import org.bukkit.inventory.Inventory;
 
 import java.util.ArrayList;
@@ -37,9 +35,8 @@ public class PaginatedMenu<T>
   private final MenuItem previousPageSwitch;
   private final MenuItem nextPageSwitch;
   private final TriConsumer<Integer, Integer, PageOperand> pageSwitchAction;
-  private int currentPage;
-
   private final List<MenuItem> pageItems;
+  private int currentPage;
 
   /**
    * Creates a paginated menu with elements of
@@ -53,6 +50,9 @@ public class PaginatedMenu<T>
    *                           inventory is opened.
    * @param closeAction        The action executed when the
    *                           inventory is closed.
+   * @param dragAction         The action executed when
+   *                           items are dragged to the
+   *                           menu.
    * @param elements           The elements to be paginated.
    * @param elementParser      The function in charge of
    *                           converting the provided
@@ -73,6 +73,8 @@ public class PaginatedMenu<T>
                        List<Type> type,
                        Predicate<InventoryOpenEvent> openAction,
                        Consumer<InventoryCloseEvent> closeAction,
+                       Predicate<InventoryDragEvent> dragAction,
+                       Predicate<InventoryClickEvent> unknownSlotClickAction,
                        List<T> elements,
                        BiFunction<T, Integer, MenuItem> elementParser,
                        int elementsPerPage,
@@ -80,9 +82,13 @@ public class PaginatedMenu<T>
                        MenuItem previousPageSwitch,
                        MenuItem nextPageSwitch,
                        TriConsumer<Integer, Integer, PageOperand> pageSwitchAction,
-                       InventoryType bukkitType,
-                       boolean blockClicks) {
-    super(title, size, items, type, openAction, closeAction, blockClicks);
+                       InventoryType bukkitType) {
+    super(
+      title, size, items,
+      type, openAction,
+      closeAction, dragAction,
+      unknownSlotClickAction
+    );
     this.pageSwitchAction = pageSwitchAction;
     this.inventory = bukkitType ==
       InventoryType.CHEST || bukkitType == InventoryType.ENDER_CHEST

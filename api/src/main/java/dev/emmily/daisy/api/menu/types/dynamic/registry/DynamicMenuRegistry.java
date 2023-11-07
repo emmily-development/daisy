@@ -1,7 +1,6 @@
 package dev.emmily.daisy.api.menu.types.dynamic.registry;
 
 import dev.emmily.daisy.api.menu.types.dynamic.AbstractDynamicMenu;
-import dev.emmily.daisy.api.menu.types.dynamic.DynamicMenu;
 
 import java.util.ArrayList;
 import java.util.List;

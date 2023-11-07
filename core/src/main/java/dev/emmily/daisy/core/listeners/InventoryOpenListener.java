@@ -1,7 +1,6 @@
 package dev.emmily.daisy.core.listeners;
 
 import dev.emmily.daisy.api.menu.Menu;
-import dev.emmily.daisy.api.menu.types.dynamic.AbstractDynamicMenu;
 import dev.emmily.daisy.api.menu.types.dynamic.DynamicMenu;
 import dev.emmily.daisy.api.menu.types.dynamic.layout.DynamicLayoutMenu;
 import dev.emmily.daisy.api.menu.types.dynamic.registry.DynamicMenuRegistry;
@@ -46,8 +45,8 @@ public class InventoryOpenListener
 
     Predicate<InventoryOpenEvent> openAction = menu.getOpenAction();
 
-    if (!openAction.test(event)) {
-      event.setCancelled(true);
+    if (openAction != null) {
+      event.setCancelled(openAction.test(event));
     }
   }
 }

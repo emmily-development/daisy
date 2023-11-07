@@ -163,6 +163,22 @@ public class NbtHandlerImpl
   }
 
   @Override
+  public void removeTag(ItemStack item,
+                        String key) {
+    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).u();
+
+    if (compound == null) {
+      return;
+    }
+
+    if (!compound.e(key)) {
+      return;
+    }
+
+    compound.r(key);
+  }
+
+  @Override
   public Map<String, Object> getTags(ItemStack item) {
     Map<String, Object> tags = new HashMap<>();
 

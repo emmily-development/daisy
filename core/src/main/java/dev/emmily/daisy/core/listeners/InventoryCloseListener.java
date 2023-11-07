@@ -1,7 +1,6 @@
 package dev.emmily.daisy.core.listeners;
 
 import dev.emmily.daisy.api.menu.Menu;
-import dev.emmily.daisy.api.menu.types.dynamic.AbstractDynamicMenu;
 import dev.emmily.daisy.api.menu.types.dynamic.DynamicMenu;
 import dev.emmily.daisy.api.menu.types.dynamic.layout.DynamicLayoutMenu;
 import dev.emmily.daisy.api.menu.types.dynamic.registry.DynamicMenuRegistry;
@@ -44,6 +43,9 @@ public class InventoryCloseListener
     }
 
     Consumer<InventoryCloseEvent> closeAction = menu.getCloseAction();
-    closeAction.accept(event);
+
+    if (closeAction != null) {
+      closeAction.accept(event);
+    }
   }
 }

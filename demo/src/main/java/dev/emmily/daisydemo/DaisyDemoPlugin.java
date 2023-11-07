@@ -22,11 +22,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 // TODO: Create test menus using a paginated selector menu
 // TODO: Load custom menus on the plugin startup
@@ -405,7 +402,7 @@ public class DaisyDemoPlugin
       ))
       .skippedSlots(new ArrayList<>(Arrays.asList(
         0, 1, 2, 3, 4, 5, 6, 7, 8,
-        9,                      17,
+        9, 17,
         18, 19, 20, 21, 22, 23, 24, 25, 26
       )))
       //.skippedSlots(skippedSlots)

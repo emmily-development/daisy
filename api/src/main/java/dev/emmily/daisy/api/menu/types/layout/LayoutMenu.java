@@ -5,9 +5,7 @@ import dev.emmily.daisy.api.item.MenuItem;
 import dev.emmily.daisy.api.menu.Menu;
 import dev.emmily.daisy.api.menu.types.chest.ChestSize;
 import org.bukkit.Bukkit;
-import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.event.inventory.InventoryOpenEvent;
-import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.event.inventory.*;
 import org.bukkit.inventory.Inventory;
 
 import java.util.ArrayList;
@@ -26,15 +24,16 @@ public class LayoutMenu
                     List<Type> type,
                     Predicate<InventoryOpenEvent> openAction,
                     Consumer<InventoryCloseEvent> closeAction,
+                    Predicate<InventoryDragEvent> dragAction,
+                    Predicate<InventoryClickEvent> unknownSlotClickAction,
                     List<String> layout,
                     Map<Character, MenuItem> items,
-                    InventoryType bukkitType,
-                    boolean blockClicks) {
+                    InventoryType bukkitType) {
     super(
       title, ChestSize.toSlots(layout.size()),
       new ArrayList<>(), type,
       openAction, closeAction,
-      blockClicks
+      dragAction, unknownSlotClickAction
     );
     this.layout = layout;
     this.items = items;

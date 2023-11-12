@@ -135,7 +135,7 @@ public class NbtHandlerImpl
     if (compound == null) {
       return new byte[0];
     }
-    CraftServer
+
     return compound.getByteArray(key);
   }
 

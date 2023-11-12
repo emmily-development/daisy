@@ -214,10 +214,12 @@ public class PaginatedMenu<T>
 
       if (item.getSlot() == 0 && elementIndex != 0) {
         pageItems.add(item);
+        getItems().add(item);
         inventory.setItem(slot++, item.getItem());
       } else {
         slot++;
         pageItems.add(item);
+        getItems().add(item);
         inventory.setItem(item.getSlot(), item.getItem());
       }
     }

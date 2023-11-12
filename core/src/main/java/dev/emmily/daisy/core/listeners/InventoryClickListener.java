@@ -79,9 +79,10 @@ public class InventoryClickListener
       }
 
       if (operand != null) {
+        int page = paginatedMenu.getCurrentPage();
         paginatedMenu.render(operand);
         paginatedMenu.getPageSwitchAction().accept(
-          paginatedMenu.getCurrentPage() - 1,
+          page,
           paginatedMenu.getCurrentPage(),
           operand
         );

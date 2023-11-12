@@ -3,6 +3,7 @@ package dev.emmily.daisy.protocol.v1_16_R3;
 import dev.emmily.daisy.api.protocol.NbtHandler;
 import net.minecraft.server.v1_16_R3.NBTBase;
 import net.minecraft.server.v1_16_R3.NBTTagCompound;
+import org.bukkit.craftbukkit.v1_16_R3.CraftServer;
 import org.bukkit.craftbukkit.v1_16_R3.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 
@@ -134,7 +135,7 @@ public class NbtHandlerImpl
     if (compound == null) {
       return new byte[0];
     }
-
+    CraftServer
     return compound.getByteArray(key);
   }
 
@@ -163,19 +164,22 @@ public class NbtHandlerImpl
   }
 
   @Override
-  public void removeTag(ItemStack item,
-                        String key) {
-    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).getTag();
+  public ItemStack removeTag(ItemStack item,
+                             String key) {
+    net.minecraft.server.v1_16_R3.ItemStack copy = CraftItemStack.asNMSCopy(item);
+    NBTTagCompound compound = copy.getTag();
 
     if (compound == null) {
-      return;
+      return item;
     }
 
     if (!compound.hasKey(key)) {
-      return;
+      return item;
     }
 
     compound.remove(key);
+
+    return CraftItemStack.asBukkitCopy(copy);
   }
 
   @Override

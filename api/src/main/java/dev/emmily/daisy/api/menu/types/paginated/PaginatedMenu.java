@@ -209,11 +209,17 @@ public class PaginatedMenu<T>
         slot++;
       }
 
-      MenuItem item = elementParser.apply(element, getElementIndex(element));
-      item.setSlot(slot);
-      pageItems.add(item);
+      int elementIndex = getElementIndex(element);
+      MenuItem item = elementParser.apply(element, elementIndex);
 
-      inventory.setItem(slot++, item.getItem());
+      if (item.getSlot() == 0 && elementIndex != 0) {
+        pageItems.add(item);
+        inventory.setItem(slot++, item.getItem());
+      } else {
+        slot++;
+        pageItems.add(item);
+        inventory.setItem(item.getSlot(), item.getItem());
+      }
     }
   }
 

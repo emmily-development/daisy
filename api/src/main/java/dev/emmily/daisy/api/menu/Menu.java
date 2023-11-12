@@ -24,6 +24,31 @@ import java.util.function.Predicate;
 // @JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, property = "@class")
 public abstract class Menu
   implements InventoryHolder {
+  public static ChestMenuBuilder chestMenuBuilder() {
+    return new ChestMenuBuilder()
+      .addType(Type.CHEST);
+  }
+
+  public static LayoutMenuBuilder layoutMenuBuilder() {
+    return new LayoutMenuBuilder()
+      .addType(Type.LAYOUT);
+  }
+
+  public static DynamicMenuBuilder dynamicMenuBuilder() {
+    return new DynamicMenuBuilder()
+      .addType(Type.DYNAMIC);
+  }
+
+  public static DynamicLayoutMenuBuilder dynamicLayoutMenuBuilder() {
+    return new DynamicLayoutMenuBuilder()
+      .addTypes(Type.DYNAMIC, Type.LAYOUT);
+  }
+
+  public static <T> PaginatedMenuBuilder<T> paginatedMenuBuilder() {
+    return new PaginatedMenuBuilder<T>()
+      .addType(Type.PAGINATED);
+  }
+  
   protected final String title;
   protected final int size;
   private final List<MenuItem> items;
@@ -74,31 +99,6 @@ public abstract class Menu
     this.openAction = openAction;
     this.closeAction = closeAction;
     this.dragAction = dragAction;
-  }
-
-  public static ChestMenuBuilder chestMenuBuilder() {
-    return new ChestMenuBuilder()
-      .addType(Type.CHEST);
-  }
-
-  public static LayoutMenuBuilder layoutMenuBuilder() {
-    return new LayoutMenuBuilder()
-      .addType(Type.LAYOUT);
-  }
-
-  public static DynamicMenuBuilder dynamicMenuBuilder() {
-    return new DynamicMenuBuilder()
-      .addType(Type.DYNAMIC);
-  }
-
-  public static DynamicLayoutMenuBuilder dynamicLayoutMenuBuilder() {
-    return new DynamicLayoutMenuBuilder()
-      .addTypes(Type.DYNAMIC, Type.LAYOUT);
-  }
-
-  public static <T> PaginatedMenuBuilder<T> paginatedMenuBuilder() {
-    return new PaginatedMenuBuilder<T>()
-      .addType(Type.PAGINATED);
   }
 
   /**

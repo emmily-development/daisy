@@ -5,26 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e780bef5-04dd-4583-a295-5c7b0e475515" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/core/listeners/InventoryDragListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/builder/MenuBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/builder/MenuBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/chest/ChestMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/chest/ChestMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/chest/ChestMenuBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/chest/ChestMenuBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/dynamic/AbstractDynamicMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/dynamic/AbstractDynamicMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/dynamic/DynamicMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/dynamic/DynamicMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/dynamic/DynamicMenuBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/dynamic/DynamicMenuBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/dynamic/layout/DynamicLayoutMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/dynamic/layout/DynamicLayoutMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/dynamic/layout/DynamicLayoutMenuBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/dynamic/layout/DynamicLayoutMenuBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/layout/LayoutMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/layout/LayoutMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/layout/LayoutMenuBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/layout/LayoutMenuBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/paginated/PaginatedMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/paginated/PaginatedMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/paginated/PaginatedMenuBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/menu/types/paginated/PaginatedMenuBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/protocol/NbtHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/dev/emmily/daisy/api/protocol/NbtHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/core/DaisySetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/core/DaisySetup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/core/listeners/InventoryClickListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/core/listeners/InventoryClickListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/core/listeners/InventoryCloseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/core/listeners/InventoryCloseListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/core/listeners/InventoryOpenListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/dev/emmily/daisy/core/listeners/InventoryOpenListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_10_R1/src/main/java/dev/emmily/daisy/protocol/v1_10_R1/NbtHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/protocol/protocol-v1_10_R1/src/main/java/dev/emmily/daisy/protocol/v1_10_R1/NbtHandlerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_11_R1/src/main/java/dev/emmily/daisy/protocol/v1_11_R1/NbtHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/protocol/protocol-v1_11_R1/src/main/java/dev/emmily/daisy/protocol/v1_11_R1/NbtHandlerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_12_R1/src/main/java/dev/emmily/daisy/protocol/v1_12_R2/NbtHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/protocol/protocol-v1_12_R1/src/main/java/dev/emmily/daisy/protocol/v1_12_R2/NbtHandlerImpl.java" afterDir="false" />
@@ -331,6 +315,17 @@
       <updated>1689661477545</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot/1.9.4-R0.1-SNAPSHOT/spigot-1.9.4-R0.1-20190527.160755-2.jar!/net/minecraft/server/v1_9_R2/NBTTagCompound.class</url>
+          <line>131</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

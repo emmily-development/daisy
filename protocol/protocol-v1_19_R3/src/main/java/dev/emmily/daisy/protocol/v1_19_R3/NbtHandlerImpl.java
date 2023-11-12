@@ -163,19 +163,22 @@ public class NbtHandlerImpl
   }
 
   @Override
-  public void removeTag(ItemStack item,
-                        String key) {
-    NBTTagCompound compound = CraftItemStack.asNMSCopy(item).u();
+  public ItemStack removeTag(ItemStack item,
+                             String key) {
+    net.minecraft.world.item.ItemStack copy = CraftItemStack.asNMSCopy(item);
+    NBTTagCompound compound = copy.u();
 
     if (compound == null) {
-      return;
+      return item;
     }
 
     if (!compound.e(key)) {
-      return;
+      return item;
     }
 
     compound.r(key);
+
+    return CraftItemStack.asBukkitCopy(copy);
   }
 
   @Override

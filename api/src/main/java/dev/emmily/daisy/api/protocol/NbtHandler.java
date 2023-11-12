@@ -169,8 +169,8 @@ public interface NbtHandler {
    *             the tag from.
    * @param key  The key of the tag.
    */
-  void removeTag(ItemStack item,
-                 String key);
+  ItemStack removeTag(ItemStack item,
+                      String key);
 
   /**
    * Returns the list of all the

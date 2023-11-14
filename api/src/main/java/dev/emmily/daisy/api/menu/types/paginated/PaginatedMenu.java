@@ -219,6 +219,7 @@ public class PaginatedMenu<T>
       MenuItem item = elementParser.apply(element, elementIndex);
 
       if (item.getSlot() == 0 && elementIndex != 0) {
+        item.setSlot(slot);
         pageItems.add(item);
         getItems().add(item);
         inventory.setItem(slot++, item.getItem());

@@ -27,8 +27,7 @@ public interface TitleUpdater {
           if (instance == null) {
             try {
               instance = (TitleUpdater) Class
-                .forName(String.format(PROTOCOL_CLASS_PATTERN, SERVER_VERSION + ".TitleUpdaterImpl" +
-                  ""))
+                .forName(String.format(PROTOCOL_CLASS_PATTERN, SERVER_VERSION + ".TitleUpdaterImpl"))
                 .getConstructor()
                 .newInstance();
             } catch (ClassNotFoundException | NoSuchMethodException e) {

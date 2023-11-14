@@ -186,7 +186,6 @@ public class PaginatedMenu<T>
     populateCopy();
 
     for (MenuItem item : getItems()) {
-      System.out.println(item);
       inventory.setItem(item.getSlot(), item.getItem());
     }
 
@@ -205,7 +204,6 @@ public class PaginatedMenu<T>
     }
 
     List<T> elements = getCurrentPageElements();
-    System.out.println("elements: " + elements);
     int slot = 0;
 
     for (T element : elements) {

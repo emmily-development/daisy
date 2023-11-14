@@ -122,17 +122,6 @@ public abstract class Menu
   }
 
   /**
-   * Returns the menu's total
-   * rows.
-   *
-   * @return The menu's total
-   * rows.
-   */
-  public int getRows() {
-    return size / 9;
-  }
-
-  /**
    * Returns the menu's Minecraft
    * GUI type.
    *
@@ -205,27 +194,38 @@ public abstract class Menu
     throw new IllegalArgumentException("The given menu types are not Minecraft inventory types");
   }
 
+  public int getRows() {
+    return (size + 8) / 9;
+  }
+
+  public int getColumns() {
+    return (size % 9 == 0) ? 9 : (size % 9);
+  }
+
   public void open(Player player) {
     player.openInventory(getInventory());
   }
 
   public enum Type {
-    CHEST(6, 9),
-    ENDER_CHEST(3, 9),
-    ANVIL(1, 3),
-    HOPPER(1, 5),
-    PLAYER(4, 9),
-    LAYOUT(0, 0),
-    PAGINATED(0, 0),
-    DYNAMIC(0, 0);
+    CHEST(6, 9, "minecraft:chest"),
+    ENDER_CHEST(3, 9, "minecraft:chest"),
+    ANVIL(1, 3, "minecraft:anvil"),
+    HOPPER(1, 5, "minecraft:hopper"),
+    PLAYER(4, 9, null),
+    LAYOUT(0, 0, null),
+    PAGINATED(0, 0, null),
+    DYNAMIC(0, 0, null);
 
     final int maxRows;
     final int maxRowSize;
+    final String nmsId;
 
     Type(int maxRows,
-         int maxRowSize) {
+         int maxRowSize,
+         String nmsId) {
       this.maxRows = maxRows;
       this.maxRowSize = maxRowSize;
+      this.nmsId = nmsId;
     }
 
     public int getMaxRows() {
@@ -242,6 +242,10 @@ public abstract class Menu
 
     public boolean isMinecraftType() {
       return maxRows != 0 || maxRowSize != 0;
+    }
+
+    public String getNmsId() {
+      return nmsId;
     }
   }
 

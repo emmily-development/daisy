@@ -1,6 +1,6 @@
 package dev.emmily.daisy.api.item.builder;
 
-import dev.emmily.daisy.api.protocol.NbtHandler;
+import dev.emmily.daisy.api.protocol.nbt.NbtHandler;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;

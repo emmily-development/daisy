@@ -1,6 +1,6 @@
 package dev.emmily.daisy.protocol.v1_14_R1;
 
-import dev.emmily.daisy.api.protocol.NbtHandler;
+import dev.emmily.daisy.api.protocol.nbt.NbtHandler;
 import net.minecraft.server.v1_14_R1.NBTBase;
 import net.minecraft.server.v1_14_R1.NBTTagCompound;
 import org.bukkit.craftbukkit.v1_14_R1.inventory.CraftItemStack;

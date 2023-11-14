@@ -1,7 +1,7 @@
 package dev.emmily.daisy.api.item;
 
 import com.google.common.base.Preconditions;
-import dev.emmily.daisy.api.protocol.NbtHandler;
+import dev.emmily.daisy.api.protocol.nbt.NbtHandler;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 

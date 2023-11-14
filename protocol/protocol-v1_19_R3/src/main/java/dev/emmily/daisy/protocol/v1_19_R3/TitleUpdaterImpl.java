@@ -1,0 +1,54 @@
+package dev.emmily.daisy.protocol.v1_19_R3;
+
+import dev.emmily.daisy.api.menu.Menu;
+import dev.emmily.daisy.api.protocol.title.TitleUpdater;
+import net.minecraft.core.IRegistry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.IChatBaseComponent;
+import net.minecraft.network.protocol.game.PacketPlayOutOpenWindow;
+import net.minecraft.resources.MinecraftKey;
+import net.minecraft.server.level.EntityPlayer;
+import net.minecraft.world.inventory.Container;
+import net.minecraft.world.inventory.Containers;
+import org.bukkit.craftbukkit.v1_19_R3.entity.CraftPlayer;
+import org.bukkit.entity.Player;
+
+public class TitleUpdaterImpl
+  implements TitleUpdater {
+  @Override
+  public void updateTitle(Player player,
+                          Menu menu,
+                          String newTitle) {
+    EntityPlayer nmsPlayer = ((CraftPlayer) player).getHandle();
+    Containers<?> containers = null;
+    String nmsId = null;
+
+    for (Menu.Type type : menu.getType()) {
+      if (type.isMinecraftType()) {
+        nmsId = type.getNmsId();
+
+        break;
+      }
+    }
+
+    if (nmsId != null) {
+      if (nmsId.equals("minecraft:chest")) {
+        int rows = menu.getRows();
+        int columns = menu.getColumns();
+        containers = BuiltInRegistries.r.a(new MinecraftKey("generic_" + columns + "x" + rows));
+      } else {
+        containers = BuiltInRegistries.r.a(new MinecraftKey(nmsId.replace("minecraft:", "")));
+      }
+    }
+
+    Container container = nmsPlayer.bP;
+
+    nmsPlayer.b.a(new PacketPlayOutOpenWindow(
+      container.j,
+      containers,
+      IChatBaseComponent.a(newTitle)
+    ));
+
+    player.updateInventory();
+  }
+}

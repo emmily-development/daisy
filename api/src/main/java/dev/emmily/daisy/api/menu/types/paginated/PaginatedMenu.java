@@ -2,7 +2,7 @@ package dev.emmily.daisy.api.menu.types.paginated;
 
 import dev.emmily.daisy.api.item.MenuItem;
 import dev.emmily.daisy.api.menu.Menu;
-import dev.emmily.daisy.api.protocol.NbtHandler;
+import dev.emmily.daisy.api.protocol.nbt.NbtHandler;
 import dev.emmily.daisy.api.util.TriConsumer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;

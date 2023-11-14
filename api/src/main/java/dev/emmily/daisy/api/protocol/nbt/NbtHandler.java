@@ -1,10 +1,13 @@
-package dev.emmily.daisy.api.protocol;
+package dev.emmily.daisy.api.protocol.nbt;
 
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
+
+import static dev.emmily.daisy.api.protocol.ServerVersion.PROTOCOL_CLASS_PATTERN;
+import static dev.emmily.daisy.api.protocol.ServerVersion.SERVER_VERSION;
 
 public interface NbtHandler {
   static NbtHandler getInstance() {
@@ -185,14 +188,8 @@ public interface NbtHandler {
   @Deprecated
   Map<String, Object> getTags(ItemStack item);
 
-  public class Holder {
+  class Holder {
     private static final Object LOCK = new Object();
-    private static final String PROTOCOL_CLASS_PATTERN = "dev.emmily.daisy.protocol.%s";
-    private static final String SERVER_VERSION = Bukkit
-      .getServer()
-      .getClass()
-      .getName()
-      .split("\\.")[3];
     private static volatile NbtHandler instance;
 
     public static NbtHandler getInstance() {

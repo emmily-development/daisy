@@ -242,6 +242,7 @@ public class PaginatedMenuBuilder<T>
 
   @Override
   public PaginatedMenu<T> build() {
+    super.title("");
     checkPreconditions();
     Preconditions.checkNotNull(previousPageSwitch, "previous page switch");
     Preconditions.checkNotNull(nextPageSwitch, "next page switch");

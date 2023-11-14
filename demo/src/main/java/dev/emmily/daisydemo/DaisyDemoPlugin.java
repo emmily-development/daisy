@@ -8,9 +8,11 @@ import dev.emmily.daisy.api.menu.reader.MenuReader;
 import dev.emmily.daisy.api.menu.reader.loader.MenuLoader;
 import dev.emmily.daisy.api.menu.types.chest.ChestSize;
 import dev.emmily.daisy.api.menu.types.dynamic.registry.DynamicMenuRegistry;
+import dev.emmily.daisy.api.protocol.title.TitleUpdater;
 import dev.emmily.daisy.core.DaisySetup;
 import dev.emmily.daisy.core.util.SoundPlayer;
 import dev.emmily.daisydemo.config.ConfigurationFile;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -22,7 +24,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 // TODO: Create test menus using a paginated selector menu
@@ -160,7 +164,9 @@ public class DaisyDemoPlugin
    */
 
   private void openSimpleMenu(Player player) {
-    player.openInventory(Menu
+    AtomicBoolean closed = new AtomicBoolean(false);
+
+    Menu menu = Menu
       .chestMenuBuilder()
       .title("Daisy demo plugin")
       .size(ChestSize.toSlots(3))
@@ -168,9 +174,12 @@ public class DaisyDemoPlugin
         player.sendMessage("Opening a menu!");
         SoundPlayer.playSound(player, Sound.NOTE_PLING, 1, 1);
 
-        return true;
+        return false;
       })
-      .closeAction(event -> player.sendMessage("Closing the menu!"))
+      .closeAction(event -> {
+        player.sendMessage("Closing the menu!");
+        closed.set(true);
+      })
       .addItems(
         MenuItem
           .builder()
@@ -194,9 +203,13 @@ public class DaisyDemoPlugin
           })
           .build()
       )
-      .build()
-      .getInventory()
-    );
+      .build();
+    menu.open(player);
+    Bukkit.getScheduler().scheduleSyncRepeatingTask(this, () -> {
+      if (!closed.get()) {
+        TitleUpdater.getInstance().updateTitle(player, menu, "ola " + ThreadLocalRandom.current().nextInt());
+      }
+    }, 20, 20);
   }
 
   private void openLayoutMenu(Player player) {

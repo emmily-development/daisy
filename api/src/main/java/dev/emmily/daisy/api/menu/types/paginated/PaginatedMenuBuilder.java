@@ -22,7 +22,8 @@ public class PaginatedMenuBuilder<T>
   private List<Integer> skippedSlots;
   private MenuItem previousPageSwitch;
   private MenuItem nextPageSwitch;
-  private TriConsumer<Integer, Integer, PaginatedMenu.PageOperand> pageSwitchAction;
+  private TriConsumer<Integer, Integer, PaginatedMenu.PageOperand> prePageSwitchAction;
+  private TriConsumer<Integer, Integer, PaginatedMenu.PageOperand> postPageSwitchAction;
 
   public PaginatedMenuBuilder<T> title(String title) {
     this.title = title;
@@ -207,8 +208,14 @@ public class PaginatedMenuBuilder<T>
     return this;
   }
 
-  public PaginatedMenuBuilder<T> pageSwitchAction(TriConsumer<Integer, Integer, PaginatedMenu.PageOperand> pageSwitchAction) {
-    this.pageSwitchAction = pageSwitchAction;
+  public PaginatedMenuBuilder<T> prePageSwitchAction(TriConsumer<Integer, Integer, PaginatedMenu.PageOperand> prePageSwitchAction) {
+    this.prePageSwitchAction = prePageSwitchAction;
+
+    return this;
+  }
+
+  public PaginatedMenuBuilder<T> postPageSwitchAction(TriConsumer<Integer, Integer, PaginatedMenu.PageOperand> postPageSwitchAction) {
+    this.postPageSwitchAction = postPageSwitchAction;
 
     return this;
   }
@@ -241,8 +248,8 @@ public class PaginatedMenuBuilder<T>
       dragAction, unknownSlotClickAction, elements,
       elementParser, elementsPerPage,
       skippedSlots, previousPageSwitch,
-      nextPageSwitch, pageSwitchAction,
-      bukkitType
+      nextPageSwitch, prePageSwitchAction,
+      postPageSwitchAction, bukkitType
     );
   }
 }

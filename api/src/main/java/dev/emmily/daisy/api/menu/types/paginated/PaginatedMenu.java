@@ -34,7 +34,8 @@ public class PaginatedMenu<T>
   private final List<Integer> skippedSlots;
   private final MenuItem previousPageSwitch;
   private final MenuItem nextPageSwitch;
-  private final TriConsumer<Integer, Integer, PageOperand> pageSwitchAction;
+  private final TriConsumer<Integer, Integer, PageOperand> prePageSwitchAction;
+  private final TriConsumer<Integer, Integer, PageOperand> postPageSwitchAction;
   private final List<MenuItem> pageItems;
   private int currentPage;
 
@@ -42,30 +43,30 @@ public class PaginatedMenu<T>
    * Creates a paginated menu with elements of
    * type {@link T}.
    *
-   * @param title              The title of the menu.
-   * @param size               The size of the menu.
-   * @param items              The default items of the menu
-   * @param type               The types of the menu.
-   * @param openAction         The action executed when the
-   *                           inventory is opened.
-   * @param closeAction        The action executed when the
-   *                           inventory is closed.
-   * @param dragAction         The action executed when
-   *                           items are dragged to the
-   *                           menu.
-   * @param elements           The elements to be paginated.
-   * @param elementParser      The function in charge of
-   *                           converting the provided
-   *                           elements into {@link MenuItem}s.
-   * @param elementsPerPage    The amount of elements that
-   *                           every page must contain.
-   * @param skippedSlots       The slots that won't hold an element.
-   * @param previousPageSwitch The item that lets the player go back
-   *                           to the previous page.
-   * @param nextPageSwitch     The item that lets the player advance to
-   *                           the next page.
-   * @param pageSwitchAction   The action executed when the page is switched.
-   * @param bukkitType         The bukkit inventory type.
+   * @param title                The title of the menu.
+   * @param size                 The size of the menu.
+   * @param items                The default items of the menu
+   * @param type                 The types of the menu.
+   * @param openAction           The action executed when the
+   *                             inventory is opened.
+   * @param closeAction          The action executed when the
+   *                             inventory is closed.
+   * @param dragAction           The action executed when
+   *                             items are dragged to the
+   *                             menu.
+   * @param elements             The elements to be paginated.
+   * @param elementParser        The function in charge of
+   *                             converting the provided
+   *                             elements into {@link MenuItem}s.
+   * @param elementsPerPage      The amount of elements that
+   *                             every page must contain.
+   * @param skippedSlots         The slots that won't hold an element.
+   * @param previousPageSwitch   The item that lets the player go back
+   *                             to the previous page.
+   * @param nextPageSwitch       The item that lets the player advance to
+   *                             the next page.
+   * @param postPageSwitchAction The action executed when the page is switched.
+   * @param bukkitType           The bukkit inventory type.
    */
   public PaginatedMenu(String title,
                        int size,
@@ -81,7 +82,8 @@ public class PaginatedMenu<T>
                        List<Integer> skippedSlots,
                        MenuItem previousPageSwitch,
                        MenuItem nextPageSwitch,
-                       TriConsumer<Integer, Integer, PageOperand> pageSwitchAction,
+                       TriConsumer<Integer, Integer, PageOperand> prePageSwitchAction,
+                       TriConsumer<Integer, Integer, PageOperand> postPageSwitchAction,
                        InventoryType bukkitType) {
     super(
       title, size, items,
@@ -89,7 +91,8 @@ public class PaginatedMenu<T>
       closeAction, dragAction,
       unknownSlotClickAction
     );
-    this.pageSwitchAction = pageSwitchAction;
+    this.prePageSwitchAction = prePageSwitchAction;
+    this.postPageSwitchAction = postPageSwitchAction;
     this.inventory = bukkitType ==
       InventoryType.CHEST || bukkitType == InventoryType.ENDER_CHEST
       ? Bukkit.createInventory(this, size, title)
@@ -180,7 +183,10 @@ public class PaginatedMenu<T>
   public void render(PageOperand operand) {
     inventory.clear();
 
+    populateCopy();
+
     for (MenuItem item : getItems()) {
+      System.out.println(item);
       inventory.setItem(item.getSlot(), item.getItem());
     }
 
@@ -198,10 +204,8 @@ public class PaginatedMenu<T>
       inventory.setItem(nextPageSwitch.getSlot(), nextPageSwitch.getItem());
     }
 
-    populateCopy();
-
     List<T> elements = getCurrentPageElements();
-
+    System.out.println("elements: " + elements);
     int slot = 0;
 
     for (T element : elements) {
@@ -295,8 +299,12 @@ public class PaginatedMenu<T>
     return inventory;
   }
 
-  public TriConsumer<Integer, Integer, PageOperand> getPageSwitchAction() {
-    return pageSwitchAction;
+  public TriConsumer<Integer, Integer, PageOperand> getPrePageSwitchAction() {
+    return prePageSwitchAction;
+  }
+
+  public TriConsumer<Integer, Integer, PageOperand> getPostPageSwitchAction() {
+    return postPageSwitchAction;
   }
 
   @Override

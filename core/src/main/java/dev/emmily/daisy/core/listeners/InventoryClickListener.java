@@ -4,6 +4,7 @@ import dev.emmily.daisy.api.item.MenuItem;
 import dev.emmily.daisy.api.menu.Menu;
 import dev.emmily.daisy.api.menu.types.dynamic.AbstractDynamicMenu;
 import dev.emmily.daisy.api.menu.types.paginated.PaginatedMenu;
+import dev.emmily.daisy.api.util.TriConsumer;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -80,12 +81,20 @@ public class InventoryClickListener
 
       if (operand != null) {
         int page = paginatedMenu.getCurrentPage();
+
+        TriConsumer<Integer, Integer, PaginatedMenu.PageOperand> prePageSwitchAction = paginatedMenu.getPrePageSwitchAction();
+
+        if (prePageSwitchAction != null) {
+          prePageSwitchAction.accept(page, page + (operand == PaginatedMenu.PageOperand.NEXT ? 1 : -1), operand);
+        }
+
         paginatedMenu.render(operand);
-        paginatedMenu.getPageSwitchAction().accept(
-          page,
-          paginatedMenu.getCurrentPage(),
-          operand
-        );
+
+        TriConsumer<Integer, Integer, PaginatedMenu.PageOperand> postPageSwitchAction = paginatedMenu.getPostPageSwitchAction();
+
+        if (postPageSwitchAction != null) {
+          postPageSwitchAction.accept(page, paginatedMenu.getCurrentPage(), operand);
+        }
       }
     }
   }

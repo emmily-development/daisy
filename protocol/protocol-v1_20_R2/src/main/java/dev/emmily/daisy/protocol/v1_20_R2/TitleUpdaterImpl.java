@@ -10,6 +10,8 @@ import net.minecraft.server.level.EntityPlayer;
 import net.minecraft.world.inventory.Container;
 import net.minecraft.world.inventory.Containers;
 import org.bukkit.craftbukkit.v1_20_R2.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_20_R2.inventory.CraftContainer;
+import org.bukkit.craftbukkit.v1_20_R2.util.CraftChatMessage;
 import org.bukkit.entity.Player;
 
 public class TitleUpdaterImpl
@@ -19,35 +21,14 @@ public class TitleUpdaterImpl
                           Menu menu,
                           String newTitle) {
     EntityPlayer nmsPlayer = ((CraftPlayer) player).getHandle();
-    Containers<?> containers = null;
-    String nmsId = null;
-
-    for (Menu.Type type : menu.getType()) {
-      if (type.isMinecraftType()) {
-        nmsId = type.getNmsId();
-
-        break;
-      }
-    }
-
-    if (nmsId != null) {
-      if (nmsId.equals("minecraft:chest")) {
-        int rows = menu.getRows();
-        int columns = menu.getColumns();
-        containers = BuiltInRegistries.s.a(new MinecraftKey("generic_" + columns + "x" + rows));
-      } else {
-        containers = BuiltInRegistries.s.a(new MinecraftKey(nmsId.replace("minecraft:", "")));
-      }
-    }
+    Containers<?> containers = CraftContainer.getNotchInventoryType(menu.getInventory());
 
     Container container = nmsPlayer.bS;
-
     nmsPlayer.c.a(new PacketPlayOutOpenWindow(
       container.j,
       containers,
-      IChatBaseComponent.a(newTitle)
+      CraftChatMessage.fromString(newTitle)[0]
     ));
-
     player.updateInventory();
   }
 }

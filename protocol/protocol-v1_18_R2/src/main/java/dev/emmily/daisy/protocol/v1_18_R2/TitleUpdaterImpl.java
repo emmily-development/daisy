@@ -10,6 +10,7 @@ import net.minecraft.server.level.EntityPlayer;
 import net.minecraft.world.inventory.Container;
 import net.minecraft.world.inventory.Containers;
 import org.bukkit.craftbukkit.v1_18_R2.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_18_R2.inventory.CraftContainer;
 import org.bukkit.entity.Player;
 
 public class TitleUpdaterImpl
@@ -19,27 +20,7 @@ public class TitleUpdaterImpl
                           Menu menu,
                           String newTitle) {
     EntityPlayer nmsPlayer = ((CraftPlayer) player).getHandle();
-    Containers<?> containers = null;
-    String nmsId = null;
-
-    for (Menu.Type type : menu.getType()) {
-      if (type.isMinecraftType()) {
-        nmsId = type.getNmsId();
-
-        break;
-      }
-    }
-
-    if (nmsId != null) {
-      if (nmsId.equals("minecraft:chest")) {
-        int rows = menu.getRows();
-        int columns = menu.getColumns();
-        containers = IRegistry.ag.a(new MinecraftKey("generic_" + columns + "x" + rows));
-      } else {
-        containers = IRegistry.ag.a(new MinecraftKey(nmsId.replace("minecraft:", "")));
-      }
-    }
-
+    Containers<?> containers = CraftContainer.getNotchInventoryType(menu.getInventory());
     Container container = nmsPlayer.bV;
 
     nmsPlayer.b.a(new PacketPlayOutOpenWindow(

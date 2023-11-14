@@ -14,7 +14,6 @@ public class TitleUpdaterImpl
   public void updateTitle(Player player,
                           Menu menu,
                           String newTitle) {
-
     EntityPlayer nmsPlayer = ((CraftPlayer) player).getHandle();
 
     String nmsId = null;

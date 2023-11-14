@@ -3,6 +3,7 @@ package dev.emmily.daisy.api.menu.types.paginated;
 import dev.emmily.daisy.api.item.MenuItem;
 import dev.emmily.daisy.api.menu.Menu;
 import dev.emmily.daisy.api.protocol.nbt.NbtHandler;
+import dev.emmily.daisy.api.protocol.title.TitleUpdater;
 import dev.emmily.daisy.api.util.TriConsumer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -11,9 +12,7 @@ import org.bukkit.inventory.Inventory;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BiFunction;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
+import java.util.function.*;
 
 /**
  * An extension of {@link Menu} that allows
@@ -29,6 +28,7 @@ import java.util.function.Predicate;
 public class PaginatedMenu<T>
   extends Menu {
   private final Inventory inventory;
+  private final Function<Integer, String> title;
   private final List<List<T>> pages;
   private final BiFunction<T, Integer, MenuItem> elementParser;
   private final List<Integer> skippedSlots;
@@ -68,7 +68,7 @@ public class PaginatedMenu<T>
    * @param postPageSwitchAction The action executed when the page is switched.
    * @param bukkitType           The bukkit inventory type.
    */
-  public PaginatedMenu(String title,
+  public PaginatedMenu(Function<Integer, String> title,
                        int size,
                        List<MenuItem> items,
                        List<Type> type,
@@ -86,17 +86,18 @@ public class PaginatedMenu<T>
                        TriConsumer<Integer, Integer, PageOperand> postPageSwitchAction,
                        InventoryType bukkitType) {
     super(
-      title, size, items,
+      null, size, items,
       type, openAction,
       closeAction, dragAction,
       unknownSlotClickAction
     );
+    this.title = title;
     this.prePageSwitchAction = prePageSwitchAction;
     this.postPageSwitchAction = postPageSwitchAction;
     this.inventory = bukkitType ==
       InventoryType.CHEST || bukkitType == InventoryType.ENDER_CHEST
-      ? Bukkit.createInventory(this, size, title)
-      : Bukkit.createInventory(this, bukkitType, title);
+      ? Bukkit.createInventory(this, size, title.apply(0))
+      : Bukkit.createInventory(this, bukkitType, title.apply(0));
     if (elementsPerPage < 0) {
       throw new IllegalArgumentException("elements per page must be at least at 1");
     }
@@ -180,7 +181,8 @@ public class PaginatedMenu<T>
    * @param operand Indicates whether the page should
    *                go forward, backward, or stay.
    */
-  public void render(PageOperand operand) {
+  public void render(Player player,
+                     PageOperand operand) {
     inventory.clear();
 
     populateCopy();
@@ -194,6 +196,8 @@ public class PaginatedMenu<T>
     } else if (operand == PageOperand.PREVIOUS) {
       previousPage();
     }
+
+    TitleUpdater.getInstance().updateTitle(player, this, title.apply(currentPage));
 
     if (hasPreviousPage()) {
       inventory.setItem(previousPageSwitch.getSlot(), previousPageSwitch.getItem());
@@ -307,7 +311,7 @@ public class PaginatedMenu<T>
 
   @Override
   public void open(Player player) {
-    render(PageOperand.CURRENT);
+    render(player, PageOperand.CURRENT);
     super.open(player);
   }
 

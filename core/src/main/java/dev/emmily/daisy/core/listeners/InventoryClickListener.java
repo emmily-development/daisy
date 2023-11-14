@@ -27,6 +27,8 @@ public class InventoryClickListener
       return;
     }
 
+    Player player = (Player) event.getWhoClicked();
+
     // Out of bounds click
     if (slot < 0 || slot > inventory.getSize()) {
       return;
@@ -88,7 +90,7 @@ public class InventoryClickListener
           prePageSwitchAction.accept(page, page + (operand == PaginatedMenu.PageOperand.NEXT ? 1 : -1), operand);
         }
 
-        paginatedMenu.render(operand);
+        paginatedMenu.render(player, operand);
 
         TriConsumer<Integer, Integer, PaginatedMenu.PageOperand> postPageSwitchAction = paginatedMenu.getPostPageSwitchAction();
 

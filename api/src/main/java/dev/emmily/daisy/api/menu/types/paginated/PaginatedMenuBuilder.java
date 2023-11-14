@@ -12,10 +12,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class PaginatedMenuBuilder<T>
   extends MenuBuilder<PaginatedMenu<T>> {
+  private Function<Integer, String> title;
   private List<T> elements;
   private BiFunction<T, Integer, MenuItem> elementParser;
   private int elementsPerPage;
@@ -25,8 +27,14 @@ public class PaginatedMenuBuilder<T>
   private TriConsumer<Integer, Integer, PaginatedMenu.PageOperand> prePageSwitchAction;
   private TriConsumer<Integer, Integer, PaginatedMenu.PageOperand> postPageSwitchAction;
 
-  public PaginatedMenuBuilder<T> title(String title) {
+  public PaginatedMenuBuilder<T> title(Function<Integer, String> title) {
     this.title = title;
+
+    return this;
+  }
+
+  public PaginatedMenuBuilder<T> title(String title) {
+    this.title = page -> title;
 
     return this;
   }

@@ -9,6 +9,10 @@ import static dev.emmily.daisy.api.protocol.ServerVersion.PROTOCOL_CLASS_PATTERN
 import static dev.emmily.daisy.api.protocol.ServerVersion.SERVER_VERSION;
 
 public interface TitleUpdater {
+  static TitleUpdater getInstance() {
+    return Holder.getInstance();
+  }
+
   void updateTitle(Player player,
                    Menu menu,
                    String newTitle);

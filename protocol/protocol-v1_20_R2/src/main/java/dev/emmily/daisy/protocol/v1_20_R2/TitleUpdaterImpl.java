@@ -2,10 +2,7 @@ package dev.emmily.daisy.protocol.v1_20_R2;
 
 import dev.emmily.daisy.api.menu.Menu;
 import dev.emmily.daisy.api.protocol.title.TitleUpdater;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.chat.IChatBaseComponent;
 import net.minecraft.network.protocol.game.PacketPlayOutOpenWindow;
-import net.minecraft.resources.MinecraftKey;
 import net.minecraft.server.level.EntityPlayer;
 import net.minecraft.world.inventory.Container;
 import net.minecraft.world.inventory.Containers;
@@ -24,7 +21,7 @@ public class TitleUpdaterImpl
     Containers<?> containers = CraftContainer.getNotchInventoryType(menu.getInventory());
 
     Container container = nmsPlayer.bS;
-    nmsPlayer.c.a(new PacketPlayOutOpenWindow(
+    nmsPlayer.c.b(new PacketPlayOutOpenWindow(
       container.j,
       containers,
       CraftChatMessage.fromString(newTitle)[0]

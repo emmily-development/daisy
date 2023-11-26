@@ -6,6 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="e780bef5-04dd-4583-a295-5c7b0e475515" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_10_R1/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/protocol/protocol-v1_10_R1/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_11_R1/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/protocol/protocol-v1_11_R1/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_12_R1/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/protocol/protocol-v1_12_R1/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_13_R2/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/protocol/protocol-v1_13_R2/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_14_R1/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/protocol/protocol-v1_14_R1/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_15_R1/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/protocol/protocol-v1_15_R1/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_16_R3/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/protocol/protocol-v1_16_R3/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_17_R1/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/protocol/protocol-v1_17_R1/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_18_R2/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/protocol/protocol-v1_18_R2/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_19_R3/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/protocol/protocol-v1_19_R3/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_20_R2/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/protocol/protocol-v1_20_R2/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_20_R2/src/main/java/dev/emmily/daisy/protocol/v1_20_R2/TitleUpdaterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/protocol/protocol-v1_20_R2/src/main/java/dev/emmily/daisy/protocol/v1_20_R2/TitleUpdaterImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_8_R3/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/protocol/protocol-v1_8_R3/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protocol/protocol-v1_9_R2/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/protocol/protocol-v1_9_R2/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,6 +118,13 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$PROJECT_DIR$/../../../../Program Files/Amazon Corretto/jdk1.8.0_372/src.zip!/java/util/Objects.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../../Program Files/Amazon Corretto/jdk1.8.0_372/src.zip!/java/util/Optional.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot-api/1.20.2-R0.1-SNAPSHOT/spigot-api-1.20.2-R0.1-20231113.001653-61.jar!/org/bukkit/permissions/PermissibleBase.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot/1.20.2-R0.1-SNAPSHOT/spigot-1.20.2-R0.1-SNAPSHOT.jar!/net/minecraft/network/protocol/game/PacketPlayOutNamedSoundEffect.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot/1.20.2-R0.1-SNAPSHOT/spigot-1.20.2-R0.1-SNAPSHOT.jar!/net/minecraft/sounds/SoundCategory.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot/1.20.2-R0.1-SNAPSHOT/spigot-1.20.2-R0.1-SNAPSHOT.jar!/org/bukkit/craftbukkit/v1_20_R2/CraftSound.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot/1.20.2-R0.1-SNAPSHOT/spigot-1.20.2-R0.1-SNAPSHOT.jar!/org/bukkit/craftbukkit/v1_20_R2/entity/CraftHumanEntity.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot/1.20.2-R0.1-SNAPSHOT/spigot-1.20.2-R0.1-SNAPSHOT.jar!/org/bukkit/craftbukkit/v1_20_R2/entity/CraftPlayer.class" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -127,7 +152,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;MTConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -152,8 +177,9 @@
       <command value="open clans" />
       <command value="mvn install" />
       <command value="open enhanced-chests" />
-      <command value="mvn install -T 4" />
       <command value="open banks" />
+      <command value="mvn install -T 4" />
+      <command value="open bekin" />
     </option>
   </component>
   <component name="RunDashboard">
